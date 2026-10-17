@@ -1,0 +1,67 @@
+{
+  "version": "0.3.0",
+  "created": "2026-10-17T08:37:19+00:00",
+  "klippy_socket": "/home/pi/printer_data/comms/klippy.sock",
+  "klipper_version": "v2026.10.00-0-g3526de3b",
+  "capture": "stream",
+  "axis": "y",
+  "stepper": "stepper_y",
+  "driver": "2240",
+  "fclk_hz": 12500000.0,
+  "accel_chip": "beacon",
+  "kinematics": "corexy",
+  "baseline_registers": {
+    "tbl": 2,
+    "toff": 3,
+    "hstrt": 5,
+    "hend": 2,
+    "tpfd": 4
+  },
+  "autotune": null,
+  "forced_spreadcycle": false,
+  "audible_khz": 30.0,
+  "audible_weight": 0.25,
+  "skip_audible": false,
+  "ranges": {
+    "tbl": [
+      0,
+      3
+    ],
+    "toff": [
+      1,
+      8
+    ],
+    "hstrt": [
+      0,
+      7
+    ],
+    "hend": [
+      0,
+      15
+    ],
+    "tpfd": [
+      0,
+      15
+    ]
+  },
+  "search": "descent",
+  "accel": 2500.0,
+  "measure_time": 1.25,
+  "trim": 0.1,
+  "iterations": 1,
+  "validate": 3,
+  "travel_distance": 55.774,
+  "speeds": [
+    44
+  ],
+  "total_moves": 744,
+  "winner": {
+    "tbl": 0,
+    "toff": 2,
+    "hstrt": 5,
+    "hend": 12,
+    "tpfd": 12
+  },
+  "kept": false,
+  "improvement": 2.9
+}
