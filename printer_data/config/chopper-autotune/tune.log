@@ -1,915 +1,797 @@
 === Motor A ===
-Driver tmc2240 on stepper_x (motor A), accelerometer beacon, kinematics corexy, registers {'tbl': 0, 'toff': 4, 'hstrt': 6, 'hend': 9, 'tpfd': 3}
+Driver tmc2240 on stepper_x (motor A), accelerometer beacon, kinematics corexy, registers {'tbl': 0, 'toff': 5, 'hstrt': 6, 'hend': 9, 'tpfd': 3}
 Plan: 51 speeds (20..120 step 2) -> 102 moves, capture stream, ETA 2m 18s
 Preparing: home XY, park at center, switch the gantry and head motors off
-note: tmc2240 stepper_x, tmc2240 stepper_y at Klipper's default slope_control 0, the slowest and hottest switching edges; klipper_tmc_autotune sets 3 (driver_SLOPE_CONTROL: 3)
 note: tmc2240 stepper_x, tmc2240 stepper_y stay at their full run_current at standstill, so a standstill heats the driver like a move (#133): cool the drivers. Klipper advises against a hold_current below run_current: a change of current can move a motor
-Baseline noise: median magnitude 211.8
+Baseline noise: median magnitude 234.1
 Scanning with Klipper default registers tbl2_toff3_hstrt5_hend2_tpfd4 — the current tuning would mask the peaks
-[1/51] 20 mm/s: median 676.1
-[2/51] 22 mm/s: median 1224.6
-[3/51] 24 mm/s: median 915.7
-[4/51] 26 mm/s: median 734.0
-[5/51] 28 mm/s: median 667.8
-[6/51] 30 mm/s: median 758.5
-[7/51] 32 mm/s: median 748.6
-[8/51] 34 mm/s: median 907.9
-[9/51] 36 mm/s: median 852.2
-[10/51] 38 mm/s: median 955.7
-[11/51] 40 mm/s: median 1418.4
-[12/51] 42 mm/s: median 3092.8
-[13/51] 44 mm/s: median 4271.0
-[14/51] 46 mm/s: median 3711.5
-[15/51] 48 mm/s: median 2746.4
-[16/51] 50 mm/s: median 2030.0
-[17/51] 52 mm/s: median 1488.6
-[18/51] 54 mm/s: median 1263.4
-[19/51] 56 mm/s: median 1051.2
-[20/51] 58 mm/s: median 1030.7
-[21/51] 60 mm/s: median 1123.1
-[22/51] 62 mm/s: median 1158.2
-[23/51] 64 mm/s: median 1489.7
-[24/51] 66 mm/s: median 1985.7
-[25/51] 68 mm/s: median 2782.3
-[26/51] 70 mm/s: median 2119.7
-[27/51] 72 mm/s: median 1518.1
-[28/51] 74 mm/s: median 1265.8
-[29/51] 76 mm/s: median 1210.2
-[30/51] 78 mm/s: median 1302.3
-[31/51] 80 mm/s: median 1678.1
-[32/51] 82 mm/s: median 2494.2
-[33/51] 84 mm/s: median 3640.0
-[34/51] 86 mm/s: median 5540.3
-[35/51] 88 mm/s: median 5192.6
-[36/51] 90 mm/s: median 4875.8
-[37/51] 92 mm/s: median 4197.6
-[38/51] 94 mm/s: median 3517.8
-[39/51] 96 mm/s: median 2946.6
-[40/51] 98 mm/s: median 2592.1
-[41/51] 100 mm/s: median 2106.0
-[42/51] 102 mm/s: median 1836.6
-[43/51] 104 mm/s: median 1615.2
-[44/51] 106 mm/s: median 1479.1
-[45/51] 108 mm/s: median 1343.4
-[46/51] 110 mm/s: median 1385.7
-[47/51] 112 mm/s: median 1391.2
-[48/51] 114 mm/s: median 1407.8
-[49/51] 116 mm/s: median 1434.0
-[50/51] 118 mm/s: median 1466.9
-[51/51] 120 mm/s: median 1589.8
+[1/51] 20 mm/s: median 886.7
+[2/51] 22 mm/s: median 1156.1
+[3/51] 24 mm/s: median 1528.8
+[4/51] 26 mm/s: median 1399.8
+[5/51] 28 mm/s: median 1068.6
+[6/51] 30 mm/s: median 1094.1
+[7/51] 32 mm/s: median 1125.5
+[8/51] 34 mm/s: median 1393.6
+[9/51] 36 mm/s: median 1165.9
+[10/51] 38 mm/s: median 1267.1
+[11/51] 40 mm/s: median 1574.7
+[12/51] 42 mm/s: median 2476.5
+[13/51] 44 mm/s: median 3519.1
+[14/51] 46 mm/s: median 5743.4
+[15/51] 48 mm/s: median 14112.8
+[16/51] 50 mm/s: median 20079.5
+[17/51] 52 mm/s: median 13725.1
+[18/51] 54 mm/s: median 7442.5
+[19/51] 56 mm/s: median 5182.0
+[20/51] 58 mm/s: median 3699.8
+[21/51] 60 mm/s: median 3268.2
+[22/51] 62 mm/s: median 3869.3
+[23/51] 64 mm/s: median 4707.7
+[24/51] 66 mm/s: median 7091.3
+[25/51] 68 mm/s: median 8042.5
+[26/51] 70 mm/s: median 6140.0
+[27/51] 72 mm/s: median 4667.0
+[28/51] 74 mm/s: median 3553.0
+[29/51] 76 mm/s: median 2759.1
+[30/51] 78 mm/s: median 2485.6
+[31/51] 80 mm/s: median 2508.1
+[32/51] 82 mm/s: median 2582.8
+[33/51] 84 mm/s: median 2459.2
+[34/51] 86 mm/s: median 2318.4
+[35/51] 88 mm/s: median 2653.6
+[36/51] 90 mm/s: median 2988.1
+[37/51] 92 mm/s: median 3551.2
+[38/51] 94 mm/s: median 4428.5
+[39/51] 96 mm/s: median 5724.0
+[40/51] 98 mm/s: median 10864.0
+[41/51] 100 mm/s: median 14512.4
+[42/51] 102 mm/s: median 10910.2
+[43/51] 104 mm/s: median 7174.0
+[44/51] 106 mm/s: median 4983.7
+[45/51] 108 mm/s: median 3689.2
+[46/51] 110 mm/s: median 3151.0
+[47/51] 112 mm/s: median 2815.3
+[48/51] 114 mm/s: median 2678.1
+[49/51] 116 mm/s: median 2580.1
+[50/51] 118 mm/s: median 2753.2
+[51/51] 120 mm/s: median 3308.1
 Restoring registers, homing
-Done in 2m: report /home/pi/printer_data/config/chopper-autotune/datasets/20261017_072307_speed_x/report.html
-Resonance peaks: 44 mm/s (magnitude 4271), 68 mm/s (magnitude 2782), 88 mm/s (magnitude 5193)
-
-Recommended: CHOPPER_COLLECT MOTOR=A SPEED=44
-Driver tmc2240 on stepper_x (motor A), accelerometer beacon, kinematics corexy, baseline {'tbl': 0, 'toff': 4, 'hstrt': 6, 'hend': 9, 'tpfd': 3}
-Plan: multi-start coordinate descent, up to 340 candidates -> up to 752 moves of 55.8mm, capture stream, ETA under 0:19
+Done in 2m: report /home/pi/printer_data/config/chopper-autotune/datasets/20261022_023156_speed_x/report.html
+Resonance peaks: 50 mm/s (magnitude 20079), 68 mm/s (magnitude 8042), 100 mm/s (magnitude 14512)
+Driver tmc2240 on stepper_x (motor A), accelerometer beacon, kinematics corexy, baseline {'tbl': 0, 'toff': 5, 'hstrt': 6, 'hend': 9, 'tpfd': 3}
+Plan: multi-start coordinate descent, up to 298 candidates -> up to 660 moves of 63.5mm, capture stream, ETA under 0:17
+Registers the run tries: TBL=1:3 TOFF=1:8 HSTRT=0:7 HEND=0:15 TPFD=0:15 MAX_HYSTERESIS=15
 Preparing: home XY, park at center, switch the gantry and head motors off
-note: tmc2240 stepper_x, tmc2240 stepper_y at Klipper's default slope_control 0, the slowest and hottest switching edges; klipper_tmc_autotune sets 3 (driver_SLOPE_CONTROL: 3)
 note: tmc2240 stepper_x, tmc2240 stepper_y stay at their full run_current at standstill, so a standstill heats the driver like a move (#133): cool the drivers. Klipper advises against a hold_current below run_current: a change of current can move a motor
-Baseline noise: median magnitude 210.3
-  tbl0_toff4_hstrt6_hend9_tpfd3 -> 2458.9
-  tbl0_toff2_hstrt6_hend9_tpfd3 -> 2667.7
-  tbl0_toff3_hstrt6_hend9_tpfd3 -> 2505.5
-  tbl0_toff5_hstrt6_hend9_tpfd3 -> 2157.5
-  tbl0_toff6_hstrt6_hend9_tpfd3 -> 2784.4 audible
-  tbl0_toff7_hstrt6_hend9_tpfd3 -> 2736.9 audible
-  tbl0_toff8_hstrt6_hend9_tpfd3 -> 2888.9 audible
-  tbl1_toff2_hstrt6_hend9_tpfd3 -> 2599.8
-  tbl1_toff3_hstrt6_hend9_tpfd3 -> 2576.2
-  tbl1_toff4_hstrt6_hend9_tpfd3 -> 2658.6
-  tbl1_toff5_hstrt6_hend9_tpfd3 -> 2522.5
-  tbl1_toff6_hstrt6_hend9_tpfd3 -> 3296.9 audible
-  tbl1_toff7_hstrt6_hend9_tpfd3 -> 3469.4 audible
-  tbl1_toff8_hstrt6_hend9_tpfd3 -> 3644.9 audible
-  tbl2_toff1_hstrt6_hend9_tpfd3 -> 3406.4
-  tbl2_toff2_hstrt6_hend9_tpfd3 -> 3438.3
-  tbl2_toff3_hstrt6_hend9_tpfd3 -> 3471.9
-  tbl2_toff4_hstrt6_hend9_tpfd3 -> 3539.2
-  tbl2_toff5_hstrt6_hend9_tpfd3 -> 4424.7 audible
-  tbl2_toff6_hstrt6_hend9_tpfd3 -> 4397.8 audible
-  tbl2_toff7_hstrt6_hend9_tpfd3 -> 4635.9 audible
-  tbl2_toff8_hstrt6_hend9_tpfd3 -> 4724.8 audible
-  tbl3_toff1_hstrt6_hend9_tpfd3 -> 4571.0
-  tbl3_toff2_hstrt6_hend9_tpfd3 -> 4712.3
-  tbl3_toff3_hstrt6_hend9_tpfd3 -> 4846.2
-  tbl3_toff4_hstrt6_hend9_tpfd3 -> 4920.9
-  tbl3_toff5_hstrt6_hend9_tpfd3 -> 6066.3 audible
-  tbl3_toff6_hstrt6_hend9_tpfd3 -> 6115.7 audible
-  tbl3_toff7_hstrt6_hend9_tpfd3 -> 6224.5 audible
-  tbl3_toff8_hstrt6_hend9_tpfd3 -> 6188.5 audible
-  tbl0_toff5_hstrt0_hend9_tpfd3 -> 3482.4
-  tbl0_toff5_hstrt1_hend9_tpfd3 -> 3299.7
-  tbl0_toff5_hstrt2_hend9_tpfd3 -> 2931.6
-  tbl0_toff5_hstrt3_hend9_tpfd3 -> 2854.2
-  tbl0_toff5_hstrt4_hend9_tpfd3 -> 2642.7
-  tbl0_toff5_hstrt5_hend9_tpfd3 -> 2328.9
-  tbl0_toff5_hstrt7_hend9_tpfd3 -> 2362.4
-  tbl0_toff5_hstrt6_hend0_tpfd3 -> 3242.6
-  tbl0_toff5_hstrt6_hend1_tpfd3 -> 3039.6
-  tbl0_toff5_hstrt6_hend2_tpfd3 -> 2937.6
-  tbl0_toff5_hstrt6_hend3_tpfd3 -> 2796.6
-  tbl0_toff5_hstrt6_hend4_tpfd3 -> 2632.8
-  tbl0_toff5_hstrt6_hend5_tpfd3 -> 2425.0
-  tbl0_toff5_hstrt6_hend6_tpfd3 -> 2530.2
-  tbl0_toff5_hstrt6_hend7_tpfd3 -> 2386.2
-  tbl0_toff5_hstrt6_hend8_tpfd3 -> 2309.8
-  tbl0_toff5_hstrt6_hend10_tpfd3 -> 2321.4
-  tbl0_toff5_hstrt6_hend11_tpfd3 -> 2470.7
-  tbl0_toff5_hstrt6_hend12_tpfd3 -> 2621.4
-  tbl0_toff5_hstrt6_hend9_tpfd0 -> 2244.2
-  tbl0_toff5_hstrt6_hend9_tpfd1 -> 2395.9
-  tbl0_toff5_hstrt6_hend9_tpfd2 -> 2365.6
-  tbl0_toff5_hstrt6_hend9_tpfd4 -> 2290.6
-  tbl0_toff5_hstrt6_hend9_tpfd5 -> 2419.6
-  tbl0_toff5_hstrt6_hend9_tpfd6 -> 2162.4
-  tbl0_toff5_hstrt6_hend9_tpfd7 -> 2184.7
-  tbl0_toff5_hstrt6_hend9_tpfd8 -> 2381.5
-  tbl0_toff5_hstrt6_hend9_tpfd9 -> 2358.9
-  tbl0_toff5_hstrt6_hend9_tpfd10 -> 2108.4
-  tbl0_toff5_hstrt6_hend9_tpfd11 -> 2345.5
-  tbl0_toff5_hstrt6_hend9_tpfd12 -> 2443.2
-  tbl0_toff5_hstrt6_hend9_tpfd13 -> 2158.0
-  tbl0_toff5_hstrt6_hend9_tpfd14 -> 2220.6
-  tbl0_toff5_hstrt6_hend9_tpfd15 -> 2423.3
-  tbl0_toff4_hstrt3_hend0_tpfd3 -> 3719.3
-  tbl0_toff2_hstrt3_hend0_tpfd3 -> 3293.4
-  tbl0_toff3_hstrt3_hend0_tpfd3 -> 3457.6
-  tbl0_toff5_hstrt3_hend0_tpfd3 -> 3933.8
-  tbl0_toff6_hstrt3_hend0_tpfd3 -> 4940.9 audible
-  tbl0_toff7_hstrt3_hend0_tpfd3 -> 5082.5 audible
-  tbl0_toff8_hstrt3_hend0_tpfd3 -> 5184.3 audible
-  tbl1_toff2_hstrt3_hend0_tpfd3 -> 4441.9
-  tbl1_toff3_hstrt3_hend0_tpfd3 -> 4501.2
-  tbl1_toff4_hstrt3_hend0_tpfd3 -> 4641.1
-  tbl1_toff5_hstrt3_hend0_tpfd3 -> 4946.7
-  tbl1_toff6_hstrt3_hend0_tpfd3 -> 5945.7 audible
-  tbl1_toff7_hstrt3_hend0_tpfd3 -> 5926.1 audible
-  tbl1_toff8_hstrt3_hend0_tpfd3 -> 5930.0 audible
-  tbl2_toff1_hstrt3_hend0_tpfd3 -> 5402.2
-  tbl2_toff2_hstrt3_hend0_tpfd3 -> 5473.7
-  tbl2_toff3_hstrt3_hend0_tpfd3 -> 5631.6
-  tbl2_toff4_hstrt3_hend0_tpfd3 -> 5717.4
-  tbl2_toff5_hstrt3_hend0_tpfd3 -> 6968.4 audible
-  tbl2_toff6_hstrt3_hend0_tpfd3 -> 7034.6 audible
-  tbl2_toff7_hstrt3_hend0_tpfd3 -> 7046.7 audible
-  tbl2_toff8_hstrt3_hend0_tpfd3 -> 6993.0 audible
-  tbl3_toff1_hstrt3_hend0_tpfd3 -> 6462.3
-  tbl3_toff2_hstrt3_hend0_tpfd3 -> 6475.1
-  tbl3_toff3_hstrt3_hend0_tpfd3 -> 6767.3
-  tbl3_toff4_hstrt3_hend0_tpfd3 -> 6736.9
-  tbl3_toff5_hstrt3_hend0_tpfd3 -> 8266.2 audible
-  tbl3_toff6_hstrt3_hend0_tpfd3 -> 8049.8 audible
-  tbl3_toff7_hstrt3_hend0_tpfd3 -> 8047.4 audible
-  tbl3_toff8_hstrt3_hend0_tpfd3 -> 8164.8 audible
-  tbl0_toff2_hstrt0_hend0_tpfd3 -> 4225.8
-  tbl0_toff2_hstrt1_hend0_tpfd3 -> 3882.3
-  tbl0_toff2_hstrt2_hend0_tpfd3 -> 3565.0
-  tbl0_toff2_hstrt4_hend0_tpfd3 -> 3103.2
-  tbl0_toff2_hstrt5_hend0_tpfd3 -> 2892.2
-  tbl0_toff2_hstrt6_hend0_tpfd3 -> 2804.0
-  tbl0_toff2_hstrt7_hend0_tpfd3 -> 2644.0
-  tbl0_toff2_hstrt7_hend1_tpfd3 -> 2482.6
-  tbl0_toff2_hstrt7_hend2_tpfd3 -> 2390.5
-  tbl0_toff2_hstrt7_hend3_tpfd3 -> 2393.4
-  tbl0_toff2_hstrt7_hend4_tpfd3 -> 2394.2
-  tbl0_toff2_hstrt7_hend5_tpfd3 -> 2433.1
-  tbl0_toff2_hstrt7_hend6_tpfd3 -> 2438.5
-  tbl0_toff2_hstrt7_hend7_tpfd3 -> 2495.8
-  tbl0_toff2_hstrt7_hend8_tpfd3 -> 2567.0
-  tbl0_toff2_hstrt7_hend9_tpfd3 -> 2649.1
-  tbl0_toff2_hstrt7_hend10_tpfd3 -> 2671.6
-  tbl0_toff2_hstrt7_hend11_tpfd3 -> 2889.6
-  tbl0_toff3_hstrt7_hend2_tpfd3 -> 2548.5
-  tbl0_toff4_hstrt7_hend2_tpfd3 -> 2637.8
-  tbl0_toff5_hstrt7_hend2_tpfd3 -> 2789.8
-  tbl0_toff6_hstrt7_hend2_tpfd3 -> 3375.3 audible
-  tbl0_toff7_hstrt7_hend2_tpfd3 -> 3409.8 audible
-  tbl0_toff8_hstrt7_hend2_tpfd3 -> 3475.8 audible
-  tbl1_toff2_hstrt7_hend2_tpfd3 -> 3291.3
-  tbl1_toff3_hstrt7_hend2_tpfd3 -> 3341.8
-  tbl1_toff4_hstrt7_hend2_tpfd3 -> 3403.5
-  tbl1_toff5_hstrt7_hend2_tpfd3 -> 3698.3
-  tbl1_toff6_hstrt7_hend2_tpfd3 -> 4196.9 audible
-  tbl1_toff7_hstrt7_hend2_tpfd3 -> 4231.9 audible
-  tbl1_toff8_hstrt7_hend2_tpfd3 -> 4261.2 audible
-  tbl2_toff1_hstrt7_hend2_tpfd3 -> 4460.1
-  tbl2_toff2_hstrt7_hend2_tpfd3 -> 4406.7
-  tbl2_toff3_hstrt7_hend2_tpfd3 -> 4420.3
-  tbl2_toff4_hstrt7_hend2_tpfd3 -> 4319.0
-  tbl2_toff5_hstrt7_hend2_tpfd3 -> 5297.3 audible
-  tbl2_toff6_hstrt7_hend2_tpfd3 -> 5267.4 audible
-  tbl2_toff7_hstrt7_hend2_tpfd3 -> 5316.1 audible
-  tbl2_toff8_hstrt7_hend2_tpfd3 -> 5343.9 audible
-  tbl3_toff1_hstrt7_hend2_tpfd3 -> 5710.3
-  tbl3_toff2_hstrt7_hend2_tpfd3 -> 5668.5
-  tbl3_toff3_hstrt7_hend2_tpfd3 -> 5675.8
-  tbl3_toff4_hstrt7_hend2_tpfd3 -> 5632.2
-  tbl3_toff5_hstrt7_hend2_tpfd3 -> 6750.1 audible
-  tbl3_toff6_hstrt7_hend2_tpfd3 -> 6777.2 audible
-  tbl3_toff7_hstrt7_hend2_tpfd3 -> 6840.6 audible
-  tbl3_toff8_hstrt7_hend2_tpfd3 -> 6822.2 audible
-  tbl0_toff2_hstrt0_hend2_tpfd3 -> 3857.3
-  tbl0_toff2_hstrt1_hend2_tpfd3 -> 3567.3
-  tbl0_toff2_hstrt2_hend2_tpfd3 -> 3197.2
-  tbl0_toff2_hstrt3_hend2_tpfd3 -> 2928.1
-  tbl0_toff2_hstrt4_hend2_tpfd3 -> 2815.3
-  tbl0_toff2_hstrt5_hend2_tpfd3 -> 2660.9
-  tbl0_toff2_hstrt6_hend2_tpfd3 -> 2535.9
-  tbl0_toff2_hstrt7_hend2_tpfd0 -> 2480.5
-  tbl0_toff2_hstrt7_hend2_tpfd1 -> 2433.2
-  tbl0_toff2_hstrt7_hend2_tpfd2 -> 2475.6
-  tbl0_toff2_hstrt7_hend2_tpfd4 -> 2446.7
-  tbl0_toff2_hstrt7_hend2_tpfd5 -> 2441.7
-  tbl0_toff2_hstrt7_hend2_tpfd6 -> 2426.8
-  tbl0_toff2_hstrt7_hend2_tpfd7 -> 2459.3
-  tbl0_toff2_hstrt7_hend2_tpfd8 -> 2390.9
-  tbl0_toff2_hstrt7_hend2_tpfd9 -> 2478.1
-  tbl0_toff2_hstrt7_hend2_tpfd10 -> 2433.8
-  tbl0_toff2_hstrt7_hend2_tpfd11 -> 2461.9
-  tbl0_toff2_hstrt7_hend2_tpfd12 -> 2451.0
-  tbl0_toff2_hstrt7_hend2_tpfd13 -> 2432.1
-  tbl0_toff2_hstrt7_hend2_tpfd14 -> 2482.3
-  tbl0_toff2_hstrt7_hend2_tpfd15 -> 2412.9
-  tbl0_toff4_hstrt3_hend7_tpfd3 -> 2742.4
-  tbl0_toff2_hstrt3_hend7_tpfd3 -> 2412.9
-  tbl0_toff3_hstrt3_hend7_tpfd3 -> 2574.7
-  tbl0_toff5_hstrt3_hend7_tpfd3 -> 2948.4
-  tbl0_toff6_hstrt3_hend7_tpfd3 -> 3793.2 audible
-  tbl0_toff7_hstrt3_hend7_tpfd3 -> 3956.4 audible
-  tbl0_toff8_hstrt3_hend7_tpfd3 -> 4084.1 audible
-  tbl1_toff2_hstrt3_hend7_tpfd3 -> 3239.2
-  tbl1_toff3_hstrt3_hend7_tpfd3 -> 3382.2
-  tbl1_toff4_hstrt3_hend7_tpfd3 -> 3655.2
-  tbl1_toff5_hstrt3_hend7_tpfd3 -> 3968.9
-  tbl1_toff6_hstrt3_hend7_tpfd3 -> 4708.1 audible
-  tbl1_toff7_hstrt3_hend7_tpfd3 -> 4841.6 audible
-  tbl1_toff8_hstrt3_hend7_tpfd3 -> 4897.0 audible
-  tbl2_toff1_hstrt3_hend7_tpfd3 -> 4381.1
-  tbl2_toff2_hstrt3_hend7_tpfd3 -> 4486.2
-  tbl2_toff3_hstrt3_hend7_tpfd3 -> 4716.2
-  tbl2_toff4_hstrt3_hend7_tpfd3 -> 4748.6
-  tbl2_toff5_hstrt3_hend7_tpfd3 -> 5878.4 audible
-  tbl2_toff6_hstrt3_hend7_tpfd3 -> 5842.3 audible
-  tbl2_toff7_hstrt3_hend7_tpfd3 -> 5914.8 audible
-  tbl2_toff8_hstrt3_hend7_tpfd3 -> 5900.7 audible
-  tbl3_toff1_hstrt3_hend7_tpfd3 -> 6026.5
-  tbl3_toff2_hstrt3_hend7_tpfd3 -> 6055.8
-  tbl3_toff3_hstrt3_hend7_tpfd3 -> 6115.9
-  tbl3_toff4_hstrt3_hend7_tpfd3 -> 6130.8
-  tbl3_toff5_hstrt3_hend7_tpfd3 -> 7395.4 audible
-  tbl3_toff6_hstrt3_hend7_tpfd3 -> 7325.7 audible
-  tbl3_toff7_hstrt3_hend7_tpfd3 -> 7287.3 audible
-  tbl3_toff8_hstrt3_hend7_tpfd3 -> 7160.6 audible
-  tbl0_toff2_hstrt0_hend7_tpfd3 -> 3011.3
-  tbl0_toff2_hstrt1_hend7_tpfd3 -> 2725.7
-  tbl0_toff2_hstrt2_hend7_tpfd3 -> 2458.6
-  tbl0_toff2_hstrt4_hend7_tpfd3 -> 2404.6
-  tbl0_toff2_hstrt5_hend7_tpfd3 -> 2441.7
-  tbl0_toff2_hstrt6_hend7_tpfd3 -> 2425.6
-  tbl0_toff2_hstrt4_hend1_tpfd3 -> 2866.5
+Baseline noise: median magnitude 213.3
+  tbl1_toff5_hstrt6_hend9_tpfd3 -> 18084.6
+  tbl1_toff2_hstrt6_hend9_tpfd3 -> 19775.2
+  tbl1_toff3_hstrt6_hend9_tpfd3 -> 18556.4
+  tbl1_toff4_hstrt6_hend9_tpfd3 -> 18167.6
+  tbl1_toff6_hstrt6_hend9_tpfd3 -> 21381.6 audible
+  tbl1_toff7_hstrt6_hend9_tpfd3 -> 21291.8 audible
+  tbl1_toff8_hstrt6_hend9_tpfd3 -> 21430.4 audible
+  tbl2_toff1_hstrt6_hend9_tpfd3 -> 20696.3
+  tbl2_toff2_hstrt6_hend9_tpfd3 -> 19822.4
+  tbl2_toff3_hstrt6_hend9_tpfd3 -> 19348.9
+  tbl2_toff4_hstrt6_hend9_tpfd3 -> 20011.0
+  tbl2_toff5_hstrt6_hend9_tpfd3 -> 23371.5 audible
+  tbl2_toff6_hstrt6_hend9_tpfd3 -> 23078.3 audible
+  tbl2_toff7_hstrt6_hend9_tpfd3 -> 23067.5 audible
+  tbl2_toff8_hstrt6_hend9_tpfd3 -> 21949.2 audible
+  tbl3_toff1_hstrt6_hend9_tpfd3 -> 21874.3
+  tbl3_toff2_hstrt6_hend9_tpfd3 -> 21344.3
+  tbl3_toff3_hstrt6_hend9_tpfd3 -> 21544.3
+  tbl3_toff4_hstrt6_hend9_tpfd3 -> 21550.1
+  tbl3_toff5_hstrt6_hend9_tpfd3 -> 25433.1 audible
+  tbl3_toff6_hstrt6_hend9_tpfd3 -> 25318.8 audible
+  tbl3_toff7_hstrt6_hend9_tpfd3 -> 25674.4 audible
+  tbl3_toff8_hstrt6_hend9_tpfd3 -> 24219.2 audible
+  tbl1_toff5_hstrt0_hend9_tpfd3 -> 21271.2
+  tbl1_toff5_hstrt1_hend9_tpfd3 -> 20986.9
+  tbl1_toff5_hstrt2_hend9_tpfd3 -> 20709.7
+  tbl1_toff5_hstrt3_hend9_tpfd3 -> 20091.1
+  tbl1_toff5_hstrt4_hend9_tpfd3 -> 19665.1
+  tbl1_toff5_hstrt5_hend9_tpfd3 -> 18850.0
+  tbl1_toff5_hstrt7_hend9_tpfd3 -> 17849.3
+  tbl1_toff5_hstrt7_hend0_tpfd3 -> 18313.5
+  tbl1_toff5_hstrt7_hend1_tpfd3 -> 18224.6
+  tbl1_toff5_hstrt7_hend2_tpfd3 -> 18013.9
+  tbl1_toff5_hstrt7_hend3_tpfd3 -> 17782.8
+  tbl1_toff5_hstrt7_hend4_tpfd3 -> 17626.1
+  tbl1_toff5_hstrt7_hend5_tpfd3 -> 17510.8
+  tbl1_toff5_hstrt7_hend6_tpfd3 -> 17395.8
+  tbl1_toff5_hstrt7_hend7_tpfd3 -> 17460.2
+  tbl1_toff5_hstrt7_hend8_tpfd3 -> 17306.7
+  tbl1_toff5_hstrt7_hend10_tpfd3 -> 17942.3
+  tbl1_toff2_hstrt7_hend8_tpfd3 -> 19710.6
+  tbl1_toff3_hstrt7_hend8_tpfd3 -> 18003.0
+  tbl1_toff4_hstrt7_hend8_tpfd3 -> 17535.1
+  tbl1_toff6_hstrt7_hend8_tpfd3 -> 20213.6 audible
+  tbl1_toff7_hstrt7_hend8_tpfd3 -> 20069.7 audible
+  tbl1_toff8_hstrt7_hend8_tpfd3 -> 20009.2 audible
+  tbl2_toff1_hstrt7_hend8_tpfd3 -> 20487.9
+  tbl2_toff2_hstrt7_hend8_tpfd3 -> 19333.3
+  tbl2_toff3_hstrt7_hend8_tpfd3 -> 18547.9
+  tbl2_toff4_hstrt7_hend8_tpfd3 -> 19003.8
+  tbl2_toff5_hstrt7_hend8_tpfd3 -> 22167.0 audible
+  tbl2_toff6_hstrt7_hend8_tpfd3 -> 21854.2 audible
+  tbl2_toff7_hstrt7_hend8_tpfd3 -> 22278.4 audible
+  tbl2_toff8_hstrt7_hend8_tpfd3 -> 20913.1 audible
+  tbl3_toff1_hstrt7_hend8_tpfd3 -> 21091.3
+  tbl3_toff2_hstrt7_hend8_tpfd3 -> 20618.3
+  tbl3_toff3_hstrt7_hend8_tpfd3 -> 20760.0
+  tbl3_toff4_hstrt7_hend8_tpfd3 -> 20802.8
+  tbl3_toff5_hstrt7_hend8_tpfd3 -> 24582.3 audible
+  tbl3_toff6_hstrt7_hend8_tpfd3 -> 24540.4 audible
+  tbl3_toff7_hstrt7_hend8_tpfd3 -> 24723.3 audible
+  tbl3_toff8_hstrt7_hend8_tpfd3 -> 23434.9 audible
+  tbl1_toff5_hstrt0_hend8_tpfd3 -> 21291.7
+  tbl1_toff5_hstrt1_hend8_tpfd3 -> 21252.9
+  tbl1_toff5_hstrt2_hend8_tpfd3 -> 20609.8
+  tbl1_toff5_hstrt3_hend8_tpfd3 -> 20231.3
+  tbl1_toff5_hstrt4_hend8_tpfd3 -> 19442.1
+  tbl1_toff5_hstrt5_hend8_tpfd3 -> 18598.3
+  tbl1_toff5_hstrt6_hend8_tpfd3 -> 17920.9
+  tbl1_toff5_hstrt7_hend8_tpfd0 -> 17205.6
+  tbl1_toff5_hstrt7_hend8_tpfd1 -> 17141.5
+  tbl1_toff5_hstrt7_hend8_tpfd2 -> 17321.9
+  tbl1_toff5_hstrt7_hend8_tpfd4 -> 17531.5
+  tbl1_toff5_hstrt7_hend8_tpfd5 -> 17313.6
+  tbl1_toff5_hstrt7_hend8_tpfd6 -> 17524.9
+  tbl1_toff5_hstrt7_hend8_tpfd7 -> 17119.0
+  tbl1_toff5_hstrt7_hend8_tpfd8 -> 17539.0
+  tbl1_toff5_hstrt7_hend8_tpfd9 -> 17428.8
+  tbl1_toff5_hstrt7_hend8_tpfd10 -> 17399.2
+  tbl1_toff5_hstrt7_hend8_tpfd11 -> 17784.0
+  tbl1_toff5_hstrt7_hend8_tpfd12 -> 17533.0
+  tbl1_toff5_hstrt7_hend8_tpfd13 -> 17711.0
+  tbl1_toff5_hstrt7_hend8_tpfd14 -> 17636.2
+  tbl1_toff5_hstrt7_hend8_tpfd15 -> 17830.3
+  tbl1_toff2_hstrt3_hend0_tpfd3 -> 20764.2
+  tbl1_toff3_hstrt3_hend0_tpfd3 -> 20368.6
+  tbl1_toff4_hstrt3_hend0_tpfd3 -> 20810.2
+  tbl1_toff5_hstrt3_hend0_tpfd3 -> 21070.2
+  tbl1_toff6_hstrt3_hend0_tpfd3 -> 24750.5 audible
+  tbl1_toff7_hstrt3_hend0_tpfd3 -> 24920.2 audible
+  tbl1_toff8_hstrt3_hend0_tpfd3 -> 25125.6 audible
+  tbl2_toff1_hstrt3_hend0_tpfd3 -> 22592.9
+  tbl2_toff2_hstrt3_hend0_tpfd3 -> 22310.2
+  tbl2_toff3_hstrt3_hend0_tpfd3 -> 22053.0
+  tbl2_toff4_hstrt3_hend0_tpfd3 -> 22297.3
+  tbl2_toff5_hstrt3_hend0_tpfd3 -> 26485.9 audible
+  tbl2_toff6_hstrt3_hend0_tpfd3 -> 26274.7 audible
+  tbl2_toff7_hstrt3_hend0_tpfd3 -> 26943.6 audible
+  tbl2_toff8_hstrt3_hend0_tpfd3 -> 25247.6 audible
+  tbl3_toff1_hstrt3_hend0_tpfd3 -> 24351.9
+  tbl3_toff2_hstrt3_hend0_tpfd3 -> 23585.6
+  tbl3_toff3_hstrt3_hend0_tpfd3 -> 23963.6
+  tbl3_toff4_hstrt3_hend0_tpfd3 -> 23997.3
+  tbl3_toff5_hstrt3_hend0_tpfd3 -> 28021.5 audible
+  tbl3_toff6_hstrt3_hend0_tpfd3 -> 27571.4 audible
+  tbl3_toff7_hstrt3_hend0_tpfd3 -> 26108.4 audible
+  tbl3_toff8_hstrt3_hend0_tpfd3 -> 26039.5 audible
+  tbl1_toff3_hstrt0_hend0_tpfd3 -> 21960.2
+  tbl1_toff3_hstrt1_hend0_tpfd3 -> 21633.8
+  tbl1_toff3_hstrt2_hend0_tpfd3 -> 21189.8
+  tbl1_toff3_hstrt4_hend0_tpfd3 -> 19838.3
+  tbl1_toff3_hstrt5_hend0_tpfd3 -> 19288.6
+  tbl1_toff3_hstrt6_hend0_tpfd3 -> 18960.7
+  tbl1_toff3_hstrt7_hend0_tpfd3 -> 18562.1
+  tbl1_toff3_hstrt7_hend1_tpfd3 -> 18528.9
+  tbl1_toff3_hstrt7_hend2_tpfd3 -> 18338.5
+  tbl1_toff3_hstrt7_hend3_tpfd3 -> 18067.4
+  tbl1_toff3_hstrt7_hend4_tpfd3 -> 17936.0
+  tbl1_toff3_hstrt7_hend5_tpfd3 -> 17651.0
+  tbl1_toff3_hstrt7_hend6_tpfd3 -> 17656.3
+  tbl1_toff3_hstrt7_hend7_tpfd3 -> 17839.5
+  tbl1_toff3_hstrt7_hend9_tpfd3 -> 18414.0
+  tbl1_toff3_hstrt7_hend10_tpfd3 -> 19108.4
+  tbl1_toff2_hstrt7_hend5_tpfd3 -> 18733.1
+  tbl1_toff4_hstrt7_hend5_tpfd3 -> 17505.2
+  tbl1_toff6_hstrt7_hend5_tpfd3 -> 20614.3 audible
+  tbl1_toff7_hstrt7_hend5_tpfd3 -> 20639.9 audible
+  tbl1_toff8_hstrt7_hend5_tpfd3 -> 20785.9 audible
+  tbl2_toff1_hstrt7_hend5_tpfd3 -> 20716.9
+  tbl2_toff2_hstrt7_hend5_tpfd3 -> 19895.3
+  tbl2_toff3_hstrt7_hend5_tpfd3 -> 19140.7
+  tbl2_toff4_hstrt7_hend5_tpfd3 -> 19462.0
+  tbl2_toff5_hstrt7_hend5_tpfd3 -> 22890.0 audible
+  tbl2_toff6_hstrt7_hend5_tpfd3 -> 22716.5 audible
+  tbl2_toff7_hstrt7_hend5_tpfd3 -> 23282.2 audible
+  tbl2_toff8_hstrt7_hend5_tpfd3 -> 21678.2 audible
+  tbl3_toff1_hstrt7_hend5_tpfd3 -> 21864.3
+  tbl3_toff2_hstrt7_hend5_tpfd3 -> 21058.5
+  tbl3_toff3_hstrt7_hend5_tpfd3 -> 21347.0
+  tbl3_toff4_hstrt7_hend5_tpfd3 -> 21430.8
+  tbl3_toff5_hstrt7_hend5_tpfd3 -> 25159.8 audible
+  tbl3_toff6_hstrt7_hend5_tpfd3 -> 25235.6 audible
+  tbl3_toff7_hstrt7_hend5_tpfd3 -> 25732.5 audible
+  tbl3_toff8_hstrt7_hend5_tpfd3 -> 24065.5 audible
+  tbl1_toff4_hstrt0_hend5_tpfd3 -> 21355.5
+  tbl1_toff4_hstrt1_hend5_tpfd3 -> 21276.1
+  tbl1_toff4_hstrt2_hend5_tpfd3 -> 20826.4
+  tbl1_toff4_hstrt3_hend5_tpfd3 -> 20405.8
+  tbl1_toff4_hstrt4_hend5_tpfd3 -> 19751.4
+  tbl1_toff4_hstrt5_hend5_tpfd3 -> 18813.1
+  tbl1_toff4_hstrt6_hend5_tpfd3 -> 18198.1
+  tbl1_toff4_hstrt7_hend0_tpfd3 -> 18209.1
+  tbl1_toff4_hstrt7_hend1_tpfd3 -> 18118.3
+  tbl1_toff4_hstrt7_hend2_tpfd3 -> 17965.5
+  tbl1_toff4_hstrt7_hend3_tpfd3 -> 17779.0
+  tbl1_toff4_hstrt7_hend4_tpfd3 -> 17840.5
+  tbl1_toff4_hstrt7_hend6_tpfd3 -> 17618.3
+  tbl1_toff4_hstrt7_hend7_tpfd3 -> 17315.5
+  tbl1_toff4_hstrt7_hend9_tpfd3 -> 17898.5
+  tbl1_toff4_hstrt7_hend10_tpfd3 -> 18628.6
+  tbl1_toff4_hstrt7_hend7_tpfd0 -> 17362.0
+  tbl1_toff4_hstrt7_hend7_tpfd1 -> 17315.9
+  tbl1_toff4_hstrt7_hend7_tpfd2 -> 17491.1
+  tbl1_toff4_hstrt7_hend7_tpfd4 -> 17285.7
+  tbl1_toff4_hstrt7_hend7_tpfd5 -> 17582.5
+  tbl1_toff4_hstrt7_hend7_tpfd6 -> 17512.5
+  tbl1_toff4_hstrt7_hend7_tpfd7 -> 17423.1
+  tbl1_toff4_hstrt7_hend7_tpfd8 -> 17572.6
+  tbl1_toff4_hstrt7_hend7_tpfd9 -> 17454.3
+  tbl1_toff4_hstrt7_hend7_tpfd10 -> 17589.5
+  tbl1_toff4_hstrt7_hend7_tpfd11 -> 17566.6
+  tbl1_toff4_hstrt7_hend7_tpfd12 -> 17616.6
+  tbl1_toff4_hstrt7_hend7_tpfd13 -> 17640.9
+  tbl1_toff4_hstrt7_hend7_tpfd14 -> 17599.7
+  tbl1_toff4_hstrt7_hend7_tpfd15 -> 17696.9
+  tbl1_toff2_hstrt3_hend7_tpfd3 -> 20033.5
+  tbl1_toff3_hstrt3_hend7_tpfd3 -> 19982.3
+  tbl1_toff4_hstrt3_hend7_tpfd3 -> 20140.4
+  tbl1_toff5_hstrt3_hend7_tpfd3 -> 20342.8
+  tbl1_toff6_hstrt3_hend7_tpfd3 -> 23982.4 audible
+  tbl1_toff7_hstrt3_hend7_tpfd3 -> 23631.1 audible
+  tbl1_toff8_hstrt3_hend7_tpfd3 -> 24024.5 audible
+  tbl2_toff1_hstrt3_hend7_tpfd3 -> 21970.0
+  tbl2_toff2_hstrt3_hend7_tpfd3 -> 21728.6
+  tbl2_toff3_hstrt3_hend7_tpfd3 -> 21455.6
+  tbl2_toff4_hstrt3_hend7_tpfd3 -> 22135.4
+  tbl2_toff5_hstrt3_hend7_tpfd3 -> 25772.9 audible
+  tbl2_toff6_hstrt3_hend7_tpfd3 -> 25566.9 audible
+  tbl2_toff7_hstrt3_hend7_tpfd3 -> 25556.1 audible
+  tbl2_toff8_hstrt3_hend7_tpfd3 -> 24223.8 audible
+  tbl3_toff1_hstrt3_hend7_tpfd3 -> 23685.0
+  tbl3_toff2_hstrt3_hend7_tpfd3 -> 23271.4
+  tbl3_toff3_hstrt3_hend7_tpfd3 -> 23312.8
+  tbl3_toff4_hstrt3_hend7_tpfd3 -> 23341.6
+  tbl3_toff5_hstrt3_hend7_tpfd3 -> 27505.3 audible
+  tbl3_toff6_hstrt3_hend7_tpfd3 -> 27442.5 audible
+  tbl3_toff7_hstrt3_hend7_tpfd3 -> 27520.5 audible
+  tbl3_toff8_hstrt3_hend7_tpfd3 -> 25807.9 audible
+  tbl1_toff3_hstrt0_hend7_tpfd3 -> 21460.8
+  tbl1_toff3_hstrt1_hend7_tpfd3 -> 21276.6
 Re-homing to reset accumulated drift
-  tbl0_toff2_hstrt4_hend3_tpfd3 -> 2667.8
-  tbl0_toff2_hstrt4_hend4_tpfd3 -> 2522.1
-  tbl0_toff2_hstrt4_hend5_tpfd3 -> 2471.7
-  tbl0_toff2_hstrt4_hend6_tpfd3 -> 2521.8
-  tbl0_toff2_hstrt4_hend8_tpfd3 -> 2556.1
-  tbl0_toff2_hstrt4_hend9_tpfd3 -> 2580.2
-  tbl0_toff2_hstrt4_hend10_tpfd3 -> 2658.4
-  tbl0_toff2_hstrt4_hend11_tpfd3 -> 2723.7
-  tbl0_toff2_hstrt4_hend12_tpfd3 -> 2784.2
-  tbl0_toff2_hstrt4_hend13_tpfd3 -> 2815.7
-  tbl0_toff2_hstrt4_hend14_tpfd3 -> 3075.3
-  tbl0_toff3_hstrt4_hend7_tpfd3 -> 2519.6
-  tbl0_toff4_hstrt4_hend7_tpfd3 -> 2568.9
-  tbl0_toff5_hstrt4_hend7_tpfd3 -> 2594.2
-  tbl0_toff6_hstrt4_hend7_tpfd3 -> 3499.6 audible
-  tbl0_toff7_hstrt4_hend7_tpfd3 -> 3728.8 audible
-  tbl0_toff8_hstrt4_hend7_tpfd3 -> 3938.8 audible
-  tbl1_toff2_hstrt4_hend7_tpfd3 -> 3104.7
-  tbl1_toff3_hstrt4_hend7_tpfd3 -> 3230.3
-  tbl1_toff4_hstrt4_hend7_tpfd3 -> 3444.3
-  tbl1_toff5_hstrt4_hend7_tpfd3 -> 3667.8
-  tbl1_toff6_hstrt4_hend7_tpfd3 -> 4448.7 audible
-  tbl1_toff7_hstrt4_hend7_tpfd3 -> 4589.6 audible
-  tbl1_toff8_hstrt4_hend7_tpfd3 -> 4716.4 audible
-  tbl2_toff1_hstrt4_hend7_tpfd3 -> 4119.2
-  tbl2_toff2_hstrt4_hend7_tpfd3 -> 4261.2
-  tbl2_toff3_hstrt4_hend7_tpfd3 -> 4345.3
-  tbl2_toff4_hstrt4_hend7_tpfd3 -> 4431.7
-  tbl2_toff5_hstrt4_hend7_tpfd3 -> 5592.9 audible
-  tbl2_toff6_hstrt4_hend7_tpfd3 -> 5559.3 audible
-  tbl2_toff7_hstrt4_hend7_tpfd3 -> 5612.4 audible
-  tbl2_toff8_hstrt4_hend7_tpfd3 -> 5633.2 audible
-  tbl3_toff1_hstrt4_hend7_tpfd3 -> 5549.9
-  tbl3_toff2_hstrt4_hend7_tpfd3 -> 5695.2
-  tbl3_toff3_hstrt4_hend7_tpfd3 -> 5776.4
-  tbl3_toff4_hstrt4_hend7_tpfd3 -> 5781.4
-  tbl3_toff5_hstrt4_hend7_tpfd3 -> 7089.5 audible
-  tbl3_toff6_hstrt4_hend7_tpfd3 -> 7023.0 audible
-  tbl3_toff7_hstrt4_hend7_tpfd3 -> 6970.7 audible
-  tbl3_toff8_hstrt4_hend7_tpfd3 -> 6902.5 audible
-  tbl0_toff2_hstrt4_hend7_tpfd0 -> 2512.0
-  tbl0_toff2_hstrt4_hend7_tpfd1 -> 2498.5
-  tbl0_toff2_hstrt4_hend7_tpfd2 -> 2492.9
-  tbl0_toff2_hstrt4_hend7_tpfd4 -> 2476.8
-  tbl0_toff2_hstrt4_hend7_tpfd5 -> 2484.3
-  tbl0_toff2_hstrt4_hend7_tpfd6 -> 2485.3
-  tbl0_toff2_hstrt4_hend7_tpfd7 -> 2473.7
-  tbl0_toff2_hstrt4_hend7_tpfd8 -> 2497.4
-  tbl0_toff2_hstrt4_hend7_tpfd9 -> 2485.1
-  tbl0_toff2_hstrt4_hend7_tpfd10 -> 2475.3
-  tbl0_toff2_hstrt4_hend7_tpfd11 -> 2460.0
-  tbl0_toff2_hstrt4_hend7_tpfd12 -> 2506.0
-  tbl0_toff2_hstrt4_hend7_tpfd13 -> 2507.5
-  tbl0_toff2_hstrt4_hend7_tpfd14 -> 2490.6
-  tbl0_toff2_hstrt4_hend7_tpfd15 -> 2512.9
-  tbl0_toff4_hstrt3_hend15_tpfd3 -> 3008.7
-  tbl0_toff2_hstrt3_hend15_tpfd3 -> 3084.8
-  tbl0_toff3_hstrt3_hend15_tpfd3 -> 3039.4
-  tbl0_toff5_hstrt3_hend15_tpfd3 -> 2994.0
-  tbl0_toff6_hstrt3_hend15_tpfd3 -> 3595.0 audible
-  tbl0_toff7_hstrt3_hend15_tpfd3 -> 3678.4 audible
-  tbl0_toff8_hstrt3_hend15_tpfd3 -> 3714.9 audible
-  tbl1_toff2_hstrt3_hend15_tpfd3 -> 2890.0
-  tbl1_toff3_hstrt3_hend15_tpfd3 -> 2745.3
-  tbl1_toff4_hstrt3_hend15_tpfd3 -> 2826.9
-  tbl1_toff5_hstrt3_hend15_tpfd3 -> 2945.4
-  tbl1_toff6_hstrt3_hend15_tpfd3 -> 3581.5 audible
-  tbl1_toff7_hstrt3_hend15_tpfd3 -> 3629.1 audible
-  tbl1_toff8_hstrt3_hend15_tpfd3 -> 3786.3 audible
-  tbl2_toff1_hstrt3_hend15_tpfd3 -> 2971.6
-  tbl2_toff2_hstrt3_hend15_tpfd3 -> 3157.6
-  tbl2_toff3_hstrt3_hend15_tpfd3 -> 3415.6
-  tbl2_toff4_hstrt3_hend15_tpfd3 -> 3596.0
-  tbl2_toff5_hstrt3_hend15_tpfd3 -> 4457.5 audible
-  tbl2_toff6_hstrt3_hend15_tpfd3 -> 4474.6 audible
-  tbl2_toff7_hstrt3_hend15_tpfd3 -> 4582.1 audible
-  tbl2_toff8_hstrt3_hend15_tpfd3 -> 4805.4 audible
-  tbl3_toff1_hstrt3_hend15_tpfd3 -> 4631.6
-  tbl3_toff2_hstrt3_hend15_tpfd3 -> 4719.5
-  tbl3_toff3_hstrt3_hend15_tpfd3 -> 4891.0
-  tbl3_toff4_hstrt3_hend15_tpfd3 -> 5071.9
-  tbl3_toff5_hstrt3_hend15_tpfd3 -> 5963.2 audible
-  tbl3_toff6_hstrt3_hend15_tpfd3 -> 5960.6 audible
-  tbl3_toff7_hstrt3_hend15_tpfd3 -> 6027.2 audible
-  tbl3_toff8_hstrt3_hend15_tpfd3 -> 5892.5 audible
-  tbl1_toff3_hstrt0_hend15_tpfd3 -> 2986.3
-  tbl1_toff3_hstrt1_hend15_tpfd3 -> 2949.1
-  tbl1_toff3_hstrt2_hend15_tpfd3 -> 2859.6
-  tbl1_toff3_hstrt3_hend1_tpfd3 -> 4453.9
-  tbl1_toff3_hstrt3_hend2_tpfd3 -> 4291.9
-  tbl1_toff3_hstrt3_hend3_tpfd3 -> 4140.3
-  tbl1_toff3_hstrt3_hend4_tpfd3 -> 3968.9
-  tbl1_toff3_hstrt3_hend5_tpfd3 -> 3806.7
-  tbl1_toff3_hstrt3_hend6_tpfd3 -> 3646.3
-  tbl1_toff3_hstrt3_hend8_tpfd3 -> 3353.3
-  tbl1_toff3_hstrt3_hend9_tpfd3 -> 3167.0
-  tbl1_toff3_hstrt3_hend10_tpfd3 -> 3018.0
-  tbl1_toff3_hstrt3_hend11_tpfd3 -> 2857.4
-  tbl1_toff3_hstrt3_hend12_tpfd3 -> 2743.4
-  tbl1_toff3_hstrt3_hend13_tpfd3 -> 2662.5
-  tbl1_toff3_hstrt3_hend14_tpfd3 -> 2658.8
-  tbl0_toff2_hstrt3_hend14_tpfd3 -> 2815.6
-  tbl0_toff3_hstrt3_hend14_tpfd3 -> 2735.9
-  tbl0_toff4_hstrt3_hend14_tpfd3 -> 2721.1
-  tbl0_toff5_hstrt3_hend14_tpfd3 -> 2694.1
-  tbl0_toff6_hstrt3_hend14_tpfd3 -> 3398.1 audible
-  tbl0_toff7_hstrt3_hend14_tpfd3 -> 3416.9 audible
-  tbl0_toff8_hstrt3_hend14_tpfd3 -> 3350.8 audible
-  tbl1_toff2_hstrt3_hend14_tpfd3 -> 2724.8
-  tbl1_toff4_hstrt3_hend14_tpfd3 -> 2732.1
-  tbl1_toff5_hstrt3_hend14_tpfd3 -> 2991.8
-  tbl1_toff6_hstrt3_hend14_tpfd3 -> 3645.9 audible
-  tbl1_toff7_hstrt3_hend14_tpfd3 -> 3619.4 audible
-  tbl1_toff8_hstrt3_hend14_tpfd3 -> 3824.5 audible
-  tbl2_toff1_hstrt3_hend14_tpfd3 -> 3098.3
-  tbl2_toff2_hstrt3_hend14_tpfd3 -> 3306.7
-  tbl2_toff3_hstrt3_hend14_tpfd3 -> 3531.7
-  tbl2_toff4_hstrt3_hend14_tpfd3 -> 3686.2
-  tbl2_toff5_hstrt3_hend14_tpfd3 -> 4560.4 audible
-  tbl2_toff6_hstrt3_hend14_tpfd3 -> 4550.7 audible
-  tbl2_toff7_hstrt3_hend14_tpfd3 -> 4672.2 audible
-  tbl2_toff8_hstrt3_hend14_tpfd3 -> 4846.2 audible
-  tbl3_toff1_hstrt3_hend14_tpfd3 -> 4787.2
-  tbl3_toff2_hstrt3_hend14_tpfd3 -> 4830.7
-  tbl3_toff3_hstrt3_hend14_tpfd3 -> 4969.5
-  tbl3_toff4_hstrt3_hend14_tpfd3 -> 5074.0
-  tbl3_toff5_hstrt3_hend14_tpfd3 -> 6008.8 audible
-  tbl3_toff6_hstrt3_hend14_tpfd3 -> 5986.3 audible
-  tbl3_toff7_hstrt3_hend14_tpfd3 -> 6022.6 audible
-  tbl3_toff8_hstrt3_hend14_tpfd3 -> 5819.6 audible
-  tbl1_toff3_hstrt0_hend14_tpfd3 -> 3041.0
-  tbl1_toff3_hstrt1_hend14_tpfd3 -> 2976.8
-  tbl1_toff3_hstrt2_hend14_tpfd3 -> 2802.6
-  tbl1_toff3_hstrt4_hend14_tpfd3 -> 2574.3
-  tbl1_toff3_hstrt4_hend0_tpfd3 -> 4237.1
-  tbl1_toff3_hstrt4_hend1_tpfd3 -> 4062.4
-  tbl1_toff3_hstrt4_hend2_tpfd3 -> 3918.8
-  tbl1_toff3_hstrt4_hend3_tpfd3 -> 3776.3
-  tbl1_toff3_hstrt4_hend4_tpfd3 -> 3610.5
-  tbl1_toff3_hstrt4_hend5_tpfd3 -> 3457.7
-  tbl1_toff3_hstrt4_hend6_tpfd3 -> 3326.1
-  tbl1_toff3_hstrt4_hend8_tpfd3 -> 3015.2
-  tbl1_toff3_hstrt4_hend9_tpfd3 -> 2854.9
-  tbl1_toff3_hstrt4_hend10_tpfd3 -> 2699.6
-  tbl1_toff3_hstrt4_hend11_tpfd3 -> 2594.7
-  tbl1_toff3_hstrt4_hend12_tpfd3 -> 2491.8
-  tbl1_toff3_hstrt4_hend13_tpfd3 -> 2491.8
-  tbl1_toff3_hstrt4_hend12_tpfd0 -> 2526.4
-  tbl1_toff3_hstrt4_hend12_tpfd1 -> 2469.8
-  tbl1_toff3_hstrt4_hend12_tpfd2 -> 2456.5
-  tbl1_toff3_hstrt4_hend12_tpfd4 -> 2496.2
-  tbl1_toff3_hstrt4_hend12_tpfd5 -> 2524.9
-  tbl1_toff3_hstrt4_hend12_tpfd6 -> 2473.7
-  tbl1_toff3_hstrt4_hend12_tpfd7 -> 2449.6
-  tbl1_toff3_hstrt4_hend12_tpfd8 -> 2479.5
-  tbl1_toff3_hstrt4_hend12_tpfd9 -> 2512.3
-  tbl1_toff3_hstrt4_hend12_tpfd10 -> 2514.4
-  tbl1_toff3_hstrt4_hend12_tpfd11 -> 2493.7
-  tbl1_toff3_hstrt4_hend12_tpfd12 -> 2488.2
-  tbl1_toff3_hstrt4_hend12_tpfd13 -> 2483.2
-  tbl1_toff3_hstrt4_hend12_tpfd14 -> 2510.1
-  tbl1_toff3_hstrt4_hend12_tpfd15 -> 2541.2
-Descent best tbl0_toff5_hstrt6_hend9_tpfd10
+  tbl1_toff3_hstrt2_hend7_tpfd3 -> 21056.4
+  tbl1_toff3_hstrt4_hend7_tpfd3 -> 19843.4
+  tbl1_toff3_hstrt5_hend7_tpfd3 -> 18850.9
+  tbl1_toff3_hstrt6_hend7_tpfd3 -> 18482.8
+  tbl1_toff2_hstrt2_hend15_tpfd3 -> 23275.7
+  tbl1_toff3_hstrt2_hend15_tpfd3 -> 22843.9
+  tbl1_toff4_hstrt2_hend15_tpfd3 -> 22429.2
+  tbl1_toff5_hstrt2_hend15_tpfd3 -> 21951.2
+  tbl1_toff6_hstrt2_hend15_tpfd3 -> 25341.2 audible
+  tbl1_toff7_hstrt2_hend15_tpfd3 -> 24357.9 audible
+  tbl1_toff8_hstrt2_hend15_tpfd3 -> 24066.6 audible
+  tbl2_toff1_hstrt2_hend15_tpfd3 -> 23736.8
+  tbl2_toff2_hstrt2_hend15_tpfd3 -> 22671.0
+  tbl2_toff3_hstrt2_hend15_tpfd3 -> 21980.4
+  tbl2_toff4_hstrt2_hend15_tpfd3 -> 22012.3
+  tbl2_toff5_hstrt2_hend15_tpfd3 -> 25665.5 audible
+  tbl2_toff6_hstrt2_hend15_tpfd3 -> 24950.7 audible
+  tbl2_toff7_hstrt2_hend15_tpfd3 -> 23297.9 audible
+  tbl2_toff8_hstrt2_hend15_tpfd3 -> 23407.1 audible
+  tbl3_toff1_hstrt2_hend15_tpfd3 -> 23471.9
+  tbl3_toff2_hstrt2_hend15_tpfd3 -> 22912.0
+  tbl3_toff3_hstrt2_hend15_tpfd3 -> 23048.1
+  tbl3_toff4_hstrt2_hend15_tpfd3 -> 23175.8
+  tbl3_toff5_hstrt2_hend15_tpfd3 -> 26886.4 audible
+  tbl3_toff6_hstrt2_hend15_tpfd3 -> 25946.7 audible
+  tbl3_toff7_hstrt2_hend15_tpfd3 -> 26267.1 audible
+  tbl3_toff8_hstrt2_hend15_tpfd3 -> 25315.4 audible
+  tbl1_toff5_hstrt0_hend15_tpfd3 -> 21479.9
+  tbl1_toff5_hstrt1_hend15_tpfd3 -> 21563.1
+  tbl1_toff5_hstrt0_hend0_tpfd3 -> 22255.8
+  tbl1_toff5_hstrt0_hend1_tpfd3 -> 22069.3
+  tbl1_toff5_hstrt0_hend2_tpfd3 -> 22108.9
+  tbl1_toff5_hstrt0_hend3_tpfd3 -> 21868.8
+  tbl1_toff5_hstrt0_hend4_tpfd3 -> 21935.8
+  tbl1_toff5_hstrt0_hend5_tpfd3 -> 21896.9
+  tbl1_toff5_hstrt0_hend6_tpfd3 -> 21785.3
+  tbl1_toff5_hstrt0_hend7_tpfd3 -> 21673.2
+  tbl1_toff5_hstrt0_hend10_tpfd3 -> 21313.0
+  tbl1_toff5_hstrt0_hend11_tpfd3 -> 21113.6
+  tbl1_toff5_hstrt0_hend12_tpfd3 -> 21134.4
+  tbl1_toff5_hstrt0_hend13_tpfd3 -> 21076.8
+  tbl1_toff5_hstrt0_hend14_tpfd3 -> 20994.8
+  tbl1_toff2_hstrt0_hend14_tpfd3 -> 22148.6
+  tbl1_toff3_hstrt0_hend14_tpfd3 -> 21430.2
+  tbl1_toff4_hstrt0_hend14_tpfd3 -> 21240.6
+  tbl1_toff6_hstrt0_hend14_tpfd3 -> 24621.9 audible
+  tbl1_toff7_hstrt0_hend14_tpfd3 -> 23715.5 audible
+  tbl1_toff8_hstrt0_hend14_tpfd3 -> 23732.8 audible
+  tbl2_toff1_hstrt0_hend14_tpfd3 -> 22974.1
+  tbl2_toff2_hstrt0_hend14_tpfd3 -> 22332.2
+  tbl2_toff3_hstrt0_hend14_tpfd3 -> 21964.9
+  tbl2_toff4_hstrt0_hend14_tpfd3 -> 22023.1
+  tbl2_toff5_hstrt0_hend14_tpfd3 -> 25769.2 audible
+  tbl2_toff6_hstrt0_hend14_tpfd3 -> 25314.5 audible
+  tbl2_toff7_hstrt0_hend14_tpfd3 -> 23729.8 audible
+  tbl2_toff8_hstrt0_hend14_tpfd3 -> 23584.9 audible
+  tbl3_toff1_hstrt0_hend14_tpfd3 -> 23489.7
+  tbl3_toff2_hstrt0_hend14_tpfd3 -> 23007.6
+  tbl3_toff3_hstrt0_hend14_tpfd3 -> 23002.2
+  tbl3_toff4_hstrt0_hend14_tpfd3 -> 23069.6
+  tbl3_toff5_hstrt0_hend14_tpfd3 -> 26990.9 audible
+  tbl3_toff6_hstrt0_hend14_tpfd3 -> 26166.9 audible
+  tbl3_toff7_hstrt0_hend14_tpfd3 -> 26366.3 audible
+  tbl3_toff8_hstrt0_hend14_tpfd3 -> 25690.0 audible
+  tbl1_toff5_hstrt1_hend14_tpfd3 -> 21253.9
+  tbl1_toff5_hstrt2_hend14_tpfd3 -> 21319.3
+  tbl1_toff5_hstrt3_hend14_tpfd3 -> 21241.5
+  tbl1_toff5_hstrt0_hend14_tpfd0 -> 21110.9
+  tbl1_toff5_hstrt0_hend14_tpfd1 -> 21065.5
+  tbl1_toff5_hstrt0_hend14_tpfd2 -> 21187.4
+  tbl1_toff5_hstrt0_hend14_tpfd4 -> 21235.3
+  tbl1_toff5_hstrt0_hend14_tpfd5 -> 21008.9
+  tbl1_toff5_hstrt0_hend14_tpfd6 -> 21194.3
+  tbl1_toff5_hstrt0_hend14_tpfd7 -> 21339.6
+  tbl1_toff5_hstrt0_hend14_tpfd8 -> 21118.1
+  tbl1_toff5_hstrt0_hend14_tpfd9 -> 21264.7
+  tbl1_toff5_hstrt0_hend14_tpfd10 -> 21294.8
+  tbl1_toff5_hstrt0_hend14_tpfd11 -> 21401.1
+  tbl1_toff5_hstrt0_hend14_tpfd12 -> 21079.7
+  tbl1_toff5_hstrt0_hend14_tpfd13 -> 21200.8
+  tbl1_toff5_hstrt0_hend14_tpfd14 -> 21334.4
+  tbl1_toff5_hstrt0_hend14_tpfd15 -> 21203.0
+Descent best tbl1_toff5_hstrt7_hend8_tpfd7
 Validating 3 candidate(s) with 2 extra iterations each
-Validating 1 candidate(s) with 2 extra iterations each
-Validating 1 candidate(s) with 2 extra iterations each
-Measuring tbl0_toff5_hstrt6_hend9_tpfd10 / tbl2_toff3_hstrt5_hend2_tpfd4 / tbl0_toff4_hstrt6_hend9_tpfd3 back to back, 4 rounds: the gain is counted on these moves
+Validating 3 candidate(s) with 2 extra iterations each
+Validating 3 candidate(s) with 2 extra iterations each
+Validating 3 candidate(s) with 2 extra iterations each
+Your registers tbl0_toff5_hstrt6_hend9_tpfd3 are not measured back to back (TBL 0 is outside TBL=1:3): the winner is not checked against them
+Measuring tbl1_toff5_hstrt7_hend8_tpfd7 / tbl2_toff3_hstrt5_hend2_tpfd4 back to back, 4 rounds: the gain is counted on these moves
 
 rank  tbl  toff  hstrt  hend  tpfd  magnitude   spread   n clicks   f_chop 
-1       0     5      6     9     3     1971.5    223.9   6      0  31.2kHz 
-2       0     5      6     9    10     1975.6    225.0  14      0  31.2kHz 
-3       0     5      6     9    13     2025.8    211.9   6      0  31.2kHz 
-4       0     5      6     9     7     2031.1    243.3   6      0  31.2kHz 
-5       0     5      6     9    14     2043.9    147.9   2      0  31.2kHz 
-6       0     5      6     9     6     2049.8    300.1   6      0  31.2kHz 
-7       0     5      6     9     0     2065.6    150.4   2      0  31.2kHz 
-8       0     5      6     9     4     2108.3    238.1   2      0  31.2kHz 
-9       0     5      6     8     3     2132.1    171.2   2      0  31.2kHz 
-10      0     5      6    10     3     2130.5    130.2   2      0  31.2kHz 
+1       1     4      7     7     7    16296.5    222.7   2      0  35.5kHz 
+2       1     5      7     8     9    15982.9    509.5   2      0  30.0kHz 
+3       1     4      7     7     9    16325.7    329.8   2      0  35.5kHz 
+4       1     5      7     7     3    16057.8    292.9   2      0  30.0kHz 
+5       1     5      7     8     1    16033.1    875.9   6      0  30.0kHz 
+6       1     4      7     7     2    16360.2      4.8   2      0  35.5kHz 
+7       1     4      7     7     1    16367.1    564.0   6      0  35.5kHz 
+8       1     4      7     5     3    16469.6    285.5   2      0  35.5kHz 
+9       1     5      7     8     3    16053.1    499.6   6      0  30.0kHz 
+10      1     5      7     5     3    16197.3    185.8   2      0  30.0kHz 
+33      1     5      7     8     7    16184.6   1022.2  14      0  30.0kHz 
 
-vs Klipper defaults tbl2_toff3_hstrt5_hend2_tpfd4, back to back: 2.3x less vibration, quieter in each of 4 rounds (4592 -> 1981)
+vs Klipper defaults tbl2_toff3_hstrt5_hend2_tpfd4, back to back: 1.2x less vibration, quieter in each of 4 rounds (20241 -> 16320)
 
 Recommended for printer.cfg:
 
 [tmc2240 stepper_x]
-driver_TBL: 0
+driver_TBL: 1
 driver_TOFF: 5
-driver_HSTRT: 6
-driver_HEND: 9
-driver_TPFD: 10
+driver_HSTRT: 7
+driver_HEND: 8
+driver_TPFD: 7
 Restoring baseline registers, homing
-Done in 30m: 768 ok, 0 failed -> /home/pi/printer_data/config/chopper-autotune/datasets/20261017_072616_x
-Next: chopper-autotune analyze /home/pi/printer_data/config/chopper-autotune/datasets/20261017_072616_x
+Done in 25m: 628 ok, 0 failed -> /home/pi/printer_data/config/chopper-autotune/datasets/20261022_023506_x
 === Motor B ===
 Driver tmc2240 on stepper_y (motor B), accelerometer beacon, kinematics corexy, registers {'tbl': 0, 'toff': 2, 'hstrt': 5, 'hend': 12, 'tpfd': 12}
 Plan: 51 speeds (20..120 step 2) -> 102 moves, capture stream, ETA 2m 18s
 Preparing: home XY, park at center, switch the gantry and head motors off
-note: tmc2240 stepper_x, tmc2240 stepper_y at Klipper's default slope_control 0, the slowest and hottest switching edges; klipper_tmc_autotune sets 3 (driver_SLOPE_CONTROL: 3)
 note: tmc2240 stepper_x, tmc2240 stepper_y stay at their full run_current at standstill, so a standstill heats the driver like a move (#133): cool the drivers. Klipper advises against a hold_current below run_current: a change of current can move a motor
-Baseline noise: median magnitude 235.8
+Baseline noise: median magnitude 221.5
 Scanning with Klipper default registers tbl2_toff3_hstrt5_hend2_tpfd4 — the current tuning would mask the peaks
-[1/51] 20 mm/s: median 652.3
-[2/51] 22 mm/s: median 1332.6
-[3/51] 24 mm/s: median 828.6
-[4/51] 26 mm/s: median 647.2
-[5/51] 28 mm/s: median 626.7
-[6/51] 30 mm/s: median 688.9
-[7/51] 32 mm/s: median 765.0
-[8/51] 34 mm/s: median 1104.6
-[9/51] 36 mm/s: median 988.0
-[10/51] 38 mm/s: median 953.4
-[11/51] 40 mm/s: median 1346.7
-[12/51] 42 mm/s: median 3272.1
-[13/51] 44 mm/s: median 3722.1
-[14/51] 46 mm/s: median 2444.5
-[15/51] 48 mm/s: median 1589.4
-[16/51] 50 mm/s: median 1243.3
-[17/51] 52 mm/s: median 1050.9
-[18/51] 54 mm/s: median 951.9
-[19/51] 56 mm/s: median 1072.9
-[20/51] 58 mm/s: median 1216.2
-[21/51] 60 mm/s: median 1173.5
-[22/51] 62 mm/s: median 1239.8
-[23/51] 64 mm/s: median 1604.6
-[24/51] 66 mm/s: median 1922.2
-[25/51] 68 mm/s: median 2420.2
-[26/51] 70 mm/s: median 2407.5
-[27/51] 72 mm/s: median 1826.2
-[28/51] 74 mm/s: median 1358.8
-[29/51] 76 mm/s: median 1293.1
-[30/51] 78 mm/s: median 1306.5
-[31/51] 80 mm/s: median 1655.9
-[32/51] 82 mm/s: median 2456.3
-[33/51] 84 mm/s: median 3942.1
-[34/51] 86 mm/s: median 4749.6
-[35/51] 88 mm/s: median 3969.8
-[36/51] 90 mm/s: median 2953.7
-[37/51] 92 mm/s: median 2338.4
-[38/51] 94 mm/s: median 2144.1
-[39/51] 96 mm/s: median 1681.3
-[40/51] 98 mm/s: median 1347.4
-[41/51] 100 mm/s: median 1261.6
-[42/51] 102 mm/s: median 1285.8
-[43/51] 104 mm/s: median 1124.3
-[44/51] 106 mm/s: median 1041.6
-[45/51] 108 mm/s: median 1014.2
-[46/51] 110 mm/s: median 984.7
-[47/51] 112 mm/s: median 1019.5
-[48/51] 114 mm/s: median 1070.5
-[49/51] 116 mm/s: median 1128.6
-[50/51] 118 mm/s: median 1200.8
-[51/51] 120 mm/s: median 1290.3
+[1/51] 20 mm/s: median 760.8
+[2/51] 22 mm/s: median 1273.5
+[3/51] 24 mm/s: median 1703.5
+[4/51] 26 mm/s: median 1311.4
+[5/51] 28 mm/s: median 959.8
+[6/51] 30 mm/s: median 1123.4
+[7/51] 32 mm/s: median 1307.3
+[8/51] 34 mm/s: median 1475.8
+[9/51] 36 mm/s: median 1373.1
+[10/51] 38 mm/s: median 1432.0
+[11/51] 40 mm/s: median 1901.7
+[12/51] 42 mm/s: median 2863.1
+[13/51] 44 mm/s: median 4279.7
+[14/51] 46 mm/s: median 6323.8
+[15/51] 48 mm/s: median 10848.2
+[16/51] 50 mm/s: median 11589.8
+[17/51] 52 mm/s: median 7036.3
+[18/51] 54 mm/s: median 4908.0
+[19/51] 56 mm/s: median 4139.5
+[20/51] 58 mm/s: median 3467.0
+[21/51] 60 mm/s: median 3175.0
+[22/51] 62 mm/s: median 3486.7
+[23/51] 64 mm/s: median 4093.9
+[24/51] 66 mm/s: median 5792.5
+[25/51] 68 mm/s: median 6839.5
+[26/51] 70 mm/s: median 5538.2
+[27/51] 72 mm/s: median 5124.2
+[28/51] 74 mm/s: median 3973.5
+[29/51] 76 mm/s: median 2530.3
+[30/51] 78 mm/s: median 2016.5
+[31/51] 80 mm/s: median 1695.3
+[32/51] 82 mm/s: median 1776.8
+[33/51] 84 mm/s: median 1862.4
+[34/51] 86 mm/s: median 1901.2
+[35/51] 88 mm/s: median 2700.5
+[36/51] 90 mm/s: median 3034.5
+[37/51] 92 mm/s: median 3306.2
+[38/51] 94 mm/s: median 4348.7
+[39/51] 96 mm/s: median 6844.1
+[40/51] 98 mm/s: median 9239.7
+[41/51] 100 mm/s: median 6093.1
+[42/51] 102 mm/s: median 4436.8
+[43/51] 104 mm/s: median 3099.0
+[44/51] 106 mm/s: median 2496.7
+[45/51] 108 mm/s: median 2176.4
+[46/51] 110 mm/s: median 1925.5
+[47/51] 112 mm/s: median 1927.4
+[48/51] 114 mm/s: median 1968.1
+[49/51] 116 mm/s: median 2090.9
+[50/51] 118 mm/s: median 2214.5
+[51/51] 120 mm/s: median 2580.5
 Restoring registers, homing
-Done in 2m: report /home/pi/printer_data/config/chopper-autotune/datasets/20261017_075727_speed_y/report.html
-Resonance peaks: 44 mm/s (magnitude 3722), 68 mm/s (magnitude 2420), 86 mm/s (magnitude 4750)
-
-Recommended: CHOPPER_COLLECT MOTOR=B SPEED=44
+Done in 2m: report /home/pi/printer_data/config/chopper-autotune/datasets/20261022_030034_speed_y/report.html
+Resonance peaks: 50 mm/s (magnitude 11590), 68 mm/s (magnitude 6839), 98 mm/s (magnitude 9240)
 Driver tmc2240 on stepper_y (motor B), accelerometer beacon, kinematics corexy, baseline {'tbl': 0, 'toff': 2, 'hstrt': 5, 'hend': 12, 'tpfd': 12}
-Plan: multi-start coordinate descent, up to 340 candidates -> up to 752 moves of 55.8mm, capture stream, ETA under 0:19
+Plan: multi-start coordinate descent, up to 298 candidates -> up to 660 moves of 63.5mm, capture stream, ETA under 0:17
+Registers the run tries: TBL=1:3 TOFF=1:8 HSTRT=0:7 HEND=0:15 TPFD=0:15 MAX_HYSTERESIS=15
 Preparing: home XY, park at center, switch the gantry and head motors off
-note: tmc2240 stepper_x, tmc2240 stepper_y at Klipper's default slope_control 0, the slowest and hottest switching edges; klipper_tmc_autotune sets 3 (driver_SLOPE_CONTROL: 3)
 note: tmc2240 stepper_x, tmc2240 stepper_y stay at their full run_current at standstill, so a standstill heats the driver like a move (#133): cool the drivers. Klipper advises against a hold_current below run_current: a change of current can move a motor
-Baseline noise: median magnitude 236.3
-Seeded from /home/pi/printer_data/config/chopper-autotune/datasets/20261017_072616_x: starting at tbl0_toff5_hstrt6_hend9_tpfd3
-  tbl0_toff5_hstrt6_hend9_tpfd3 -> 1440.0
-  tbl0_toff2_hstrt6_hend9_tpfd3 -> 1327.2
-  tbl0_toff3_hstrt6_hend9_tpfd3 -> 1432.6
-  tbl0_toff4_hstrt6_hend9_tpfd3 -> 1385.7
-  tbl0_toff6_hstrt6_hend9_tpfd3 -> 1782.6 audible
-  tbl0_toff7_hstrt6_hend9_tpfd3 -> 1894.3 audible
-  tbl0_toff8_hstrt6_hend9_tpfd3 -> 1977.5 audible
-  tbl1_toff2_hstrt6_hend9_tpfd3 -> 1642.1
-  tbl1_toff3_hstrt6_hend9_tpfd3 -> 1636.5
-  tbl1_toff4_hstrt6_hend9_tpfd3 -> 1771.9
-  tbl1_toff5_hstrt6_hend9_tpfd3 -> 1919.8
-  tbl1_toff6_hstrt6_hend9_tpfd3 -> 2359.3 audible
-  tbl1_toff7_hstrt6_hend9_tpfd3 -> 2406.4 audible
-  tbl1_toff8_hstrt6_hend9_tpfd3 -> 2655.3 audible
-  tbl2_toff1_hstrt6_hend9_tpfd3 -> 2280.8
-  tbl2_toff2_hstrt6_hend9_tpfd3 -> 2549.0
-  tbl2_toff3_hstrt6_hend9_tpfd3 -> 2580.8
-  tbl2_toff4_hstrt6_hend9_tpfd3 -> 2635.2
-  tbl2_toff5_hstrt6_hend9_tpfd3 -> 3312.7 audible
-  tbl2_toff6_hstrt6_hend9_tpfd3 -> 3467.5 audible
-  tbl2_toff7_hstrt6_hend9_tpfd3 -> 3759.6 audible
-  tbl2_toff8_hstrt6_hend9_tpfd3 -> 3817.7 audible
-  tbl3_toff1_hstrt6_hend9_tpfd3 -> 3763.0
-  tbl3_toff2_hstrt6_hend9_tpfd3 -> 3795.6
-  tbl3_toff3_hstrt6_hend9_tpfd3 -> 4063.4
-  tbl3_toff4_hstrt6_hend9_tpfd3 -> 4199.5
-  tbl3_toff5_hstrt6_hend9_tpfd3 -> 5142.1 audible
-  tbl3_toff6_hstrt6_hend9_tpfd3 -> 5264.7 audible
-  tbl3_toff7_hstrt6_hend9_tpfd3 -> 5309.6 audible
-  tbl3_toff8_hstrt6_hend9_tpfd3 -> 5438.5 audible
-  tbl0_toff2_hstrt0_hend9_tpfd3 -> 1827.4
-  tbl0_toff2_hstrt1_hend9_tpfd3 -> 1670.0
-  tbl0_toff2_hstrt2_hend9_tpfd3 -> 1556.5
-  tbl0_toff2_hstrt3_hend9_tpfd3 -> 1506.6
-  tbl0_toff2_hstrt4_hend9_tpfd3 -> 1484.3
-  tbl0_toff2_hstrt5_hend9_tpfd3 -> 1444.9
-  tbl0_toff2_hstrt7_hend9_tpfd3 -> 1345.7
-  tbl0_toff2_hstrt6_hend0_tpfd3 -> 1831.3
-  tbl0_toff2_hstrt6_hend1_tpfd3 -> 1670.9
-  tbl0_toff2_hstrt6_hend2_tpfd3 -> 1636.1
-  tbl0_toff2_hstrt6_hend3_tpfd3 -> 1537.0
-  tbl0_toff2_hstrt6_hend4_tpfd3 -> 1507.2
-  tbl0_toff2_hstrt6_hend5_tpfd3 -> 1474.5
-  tbl0_toff2_hstrt6_hend6_tpfd3 -> 1491.0
-  tbl0_toff2_hstrt6_hend7_tpfd3 -> 1480.2
-  tbl0_toff2_hstrt6_hend8_tpfd3 -> 1441.8
-  tbl0_toff2_hstrt6_hend10_tpfd3 -> 1332.8
-  tbl0_toff2_hstrt6_hend11_tpfd3 -> 1313.9
-  tbl0_toff2_hstrt6_hend12_tpfd3 -> 1326.2
-  tbl0_toff3_hstrt6_hend11_tpfd3 -> 1399.5
-  tbl0_toff4_hstrt6_hend11_tpfd3 -> 1479.2
-  tbl0_toff5_hstrt6_hend11_tpfd3 -> 1510.2
-  tbl0_toff6_hstrt6_hend11_tpfd3 -> 1797.1 audible
-  tbl0_toff7_hstrt6_hend11_tpfd3 -> 1822.9 audible
-  tbl0_toff8_hstrt6_hend11_tpfd3 -> 1917.7 audible
-  tbl1_toff2_hstrt6_hend11_tpfd3 -> 1622.0
-  tbl1_toff3_hstrt6_hend11_tpfd3 -> 1628.4
-  tbl1_toff4_hstrt6_hend11_tpfd3 -> 1641.8
-  tbl1_toff5_hstrt6_hend11_tpfd3 -> 1797.2
-  tbl1_toff6_hstrt6_hend11_tpfd3 -> 2111.6 audible
-  tbl1_toff7_hstrt6_hend11_tpfd3 -> 2237.7 audible
-  tbl1_toff8_hstrt6_hend11_tpfd3 -> 2374.5 audible
-  tbl2_toff1_hstrt6_hend11_tpfd3 -> 2009.8
-  tbl2_toff2_hstrt6_hend11_tpfd3 -> 2241.6
-  tbl2_toff3_hstrt6_hend11_tpfd3 -> 2256.8
-  tbl2_toff4_hstrt6_hend11_tpfd3 -> 2574.8
-  tbl2_toff5_hstrt6_hend11_tpfd3 -> 2953.5 audible
-  tbl2_toff6_hstrt6_hend11_tpfd3 -> 3034.4 audible
-  tbl2_toff7_hstrt6_hend11_tpfd3 -> 3398.8 audible
-  tbl2_toff8_hstrt6_hend11_tpfd3 -> 3431.3 audible
-  tbl3_toff1_hstrt6_hend11_tpfd3 -> 3366.0
-  tbl3_toff2_hstrt6_hend11_tpfd3 -> 3438.1
-  tbl3_toff3_hstrt6_hend11_tpfd3 -> 3752.2
-  tbl3_toff4_hstrt6_hend11_tpfd3 -> 3703.1
-  tbl3_toff5_hstrt6_hend11_tpfd3 -> 4786.9 audible
-  tbl3_toff6_hstrt6_hend11_tpfd3 -> 4960.8 audible
-  tbl3_toff7_hstrt6_hend11_tpfd3 -> 5023.6 audible
-  tbl3_toff8_hstrt6_hend11_tpfd3 -> 5170.6 audible
-  tbl0_toff2_hstrt0_hend11_tpfd3 -> 1788.6
-  tbl0_toff2_hstrt1_hend11_tpfd3 -> 1660.5
-  tbl0_toff2_hstrt2_hend11_tpfd3 -> 1559.2
-  tbl0_toff2_hstrt3_hend11_tpfd3 -> 1459.3
-  tbl0_toff2_hstrt4_hend11_tpfd3 -> 1416.4
-  tbl0_toff2_hstrt5_hend11_tpfd3 -> 1382.1
-  tbl0_toff2_hstrt7_hend11_tpfd3 -> 1327.0
-  tbl0_toff2_hstrt6_hend11_tpfd0 -> 1332.6
-  tbl0_toff2_hstrt6_hend11_tpfd1 -> 1350.3
-  tbl0_toff2_hstrt6_hend11_tpfd2 -> 1321.8
-  tbl0_toff2_hstrt6_hend11_tpfd4 -> 1308.4
-  tbl0_toff2_hstrt6_hend11_tpfd5 -> 1301.2
-  tbl0_toff2_hstrt6_hend11_tpfd6 -> 1302.0
-  tbl0_toff2_hstrt6_hend11_tpfd7 -> 1298.6
-  tbl0_toff2_hstrt6_hend11_tpfd8 -> 1267.0
-  tbl0_toff2_hstrt6_hend11_tpfd9 -> 1289.0
-  tbl0_toff2_hstrt6_hend11_tpfd10 -> 1273.9
-  tbl0_toff2_hstrt6_hend11_tpfd11 -> 1282.7
-  tbl0_toff2_hstrt6_hend11_tpfd12 -> 1289.6
-  tbl0_toff2_hstrt6_hend11_tpfd13 -> 1286.4
-  tbl0_toff2_hstrt6_hend11_tpfd14 -> 1298.7
-  tbl0_toff2_hstrt6_hend11_tpfd15 -> 1340.1
-  tbl0_toff4_hstrt3_hend0_tpfd3 -> 2841.1
-  tbl0_toff2_hstrt3_hend0_tpfd3 -> 2241.6
-  tbl0_toff3_hstrt3_hend0_tpfd3 -> 2610.3
-  tbl0_toff5_hstrt3_hend0_tpfd3 -> 3080.4
-  tbl0_toff6_hstrt3_hend0_tpfd3 -> 4049.5 audible
-  tbl0_toff7_hstrt3_hend0_tpfd3 -> 4214.6 audible
-  tbl0_toff8_hstrt3_hend0_tpfd3 -> 4364.7 audible
-  tbl1_toff2_hstrt3_hend0_tpfd3 -> 3414.2
-  tbl1_toff3_hstrt3_hend0_tpfd3 -> 3591.5
-  tbl1_toff4_hstrt3_hend0_tpfd3 -> 3940.1
-  tbl1_toff5_hstrt3_hend0_tpfd3 -> 3919.7
-  tbl1_toff6_hstrt3_hend0_tpfd3 -> 5019.7 audible
-  tbl1_toff7_hstrt3_hend0_tpfd3 -> 5187.2 audible
-  tbl1_toff8_hstrt3_hend0_tpfd3 -> 5283.1 audible
-  tbl2_toff1_hstrt3_hend0_tpfd3 -> 4502.0
-  tbl2_toff2_hstrt3_hend0_tpfd3 -> 4655.7
-  tbl2_toff3_hstrt3_hend0_tpfd3 -> 4889.4
-  tbl2_toff4_hstrt3_hend0_tpfd3 -> 5005.8
-  tbl2_toff5_hstrt3_hend0_tpfd3 -> 6183.9 audible
-  tbl2_toff6_hstrt3_hend0_tpfd3 -> 6234.0 audible
-  tbl2_toff7_hstrt3_hend0_tpfd3 -> 6178.9 audible
-  tbl2_toff8_hstrt3_hend0_tpfd3 -> 6275.7 audible
-  tbl3_toff1_hstrt3_hend0_tpfd3 -> 5988.4
-  tbl3_toff2_hstrt3_hend0_tpfd3 -> 6105.1
-  tbl3_toff3_hstrt3_hend0_tpfd3 -> 6198.3
-  tbl3_toff4_hstrt3_hend0_tpfd3 -> 6313.9
-  tbl3_toff5_hstrt3_hend0_tpfd3 -> 7412.4 audible
-  tbl3_toff6_hstrt3_hend0_tpfd3 -> 7411.0 audible
-  tbl3_toff7_hstrt3_hend0_tpfd3 -> 7299.3 audible
-  tbl3_toff8_hstrt3_hend0_tpfd3 -> 7234.7 audible
-  tbl0_toff2_hstrt0_hend0_tpfd3 -> 3151.2
-  tbl0_toff2_hstrt1_hend0_tpfd3 -> 2788.3
-  tbl0_toff2_hstrt2_hend0_tpfd3 -> 2467.8
-  tbl0_toff2_hstrt4_hend0_tpfd3 -> 2093.8
-  tbl0_toff2_hstrt5_hend0_tpfd3 -> 1974.7
-  tbl0_toff2_hstrt7_hend0_tpfd3 -> 1735.5
-  tbl0_toff2_hstrt7_hend1_tpfd3 -> 1682.5
-  tbl0_toff2_hstrt7_hend2_tpfd3 -> 1557.8
-  tbl0_toff2_hstrt7_hend3_tpfd3 -> 1543.8
-  tbl0_toff2_hstrt7_hend4_tpfd3 -> 1506.4
-  tbl0_toff2_hstrt7_hend5_tpfd3 -> 1498.7
-  tbl0_toff2_hstrt7_hend6_tpfd3 -> 1480.0
-  tbl0_toff2_hstrt7_hend7_tpfd3 -> 1437.5
-  tbl0_toff2_hstrt7_hend8_tpfd3 -> 1434.1
-  tbl0_toff2_hstrt7_hend10_tpfd3 -> 1325.2
-  tbl0_toff3_hstrt7_hend10_tpfd3 -> 1442.8
-  tbl0_toff4_hstrt7_hend10_tpfd3 -> 1486.0
-  tbl0_toff5_hstrt7_hend10_tpfd3 -> 1523.0
-  tbl0_toff6_hstrt7_hend10_tpfd3 -> 1810.1 audible
-  tbl0_toff7_hstrt7_hend10_tpfd3 -> 1839.3 audible
-  tbl0_toff8_hstrt7_hend10_tpfd3 -> 1842.6 audible
-  tbl1_toff2_hstrt7_hend10_tpfd3 -> 1677.5
-  tbl1_toff3_hstrt7_hend10_tpfd3 -> 1641.2
-  tbl1_toff4_hstrt7_hend10_tpfd3 -> 1654.3
-  tbl1_toff5_hstrt7_hend10_tpfd3 -> 1839.7
-  tbl1_toff6_hstrt7_hend10_tpfd3 -> 2078.9 audible
-  tbl1_toff7_hstrt7_hend10_tpfd3 -> 2138.7 audible
-  tbl1_toff8_hstrt7_hend10_tpfd3 -> 2200.4 audible
-  tbl2_toff1_hstrt7_hend10_tpfd3 -> 2029.7
-  tbl2_toff2_hstrt7_hend10_tpfd3 -> 2223.0
-  tbl2_toff3_hstrt7_hend10_tpfd3 -> 2251.0
-  tbl2_toff4_hstrt7_hend10_tpfd3 -> 2580.5
-  tbl2_toff5_hstrt7_hend10_tpfd3 -> 2895.6 audible
-  tbl2_toff6_hstrt7_hend10_tpfd3 -> 2848.1 audible
-  tbl2_toff7_hstrt7_hend10_tpfd3 -> 3177.9 audible
-  tbl2_toff8_hstrt7_hend10_tpfd3 -> 3234.7 audible
-  tbl3_toff1_hstrt7_hend10_tpfd3 -> 3388.4
-  tbl3_toff2_hstrt7_hend10_tpfd3 -> 3433.2
-  tbl3_toff3_hstrt7_hend10_tpfd3 -> 3565.2
-  tbl3_toff4_hstrt7_hend10_tpfd3 -> 3472.4
-  tbl3_toff5_hstrt7_hend10_tpfd3 -> 4545.5 audible
-  tbl3_toff6_hstrt7_hend10_tpfd3 -> 4732.2 audible
-  tbl3_toff7_hstrt7_hend10_tpfd3 -> 4763.8 audible
-  tbl3_toff8_hstrt7_hend10_tpfd3 -> 4997.4 audible
-  tbl0_toff2_hstrt0_hend10_tpfd3 -> 1808.8
-  tbl0_toff2_hstrt1_hend10_tpfd3 -> 1637.8
-  tbl0_toff2_hstrt2_hend10_tpfd3 -> 1585.2
-  tbl0_toff2_hstrt3_hend10_tpfd3 -> 1510.2
-  tbl0_toff2_hstrt4_hend10_tpfd3 -> 1461.3
-  tbl0_toff2_hstrt5_hend10_tpfd3 -> 1427.1
-  tbl0_toff2_hstrt7_hend10_tpfd0 -> 1335.1
-  tbl0_toff2_hstrt7_hend10_tpfd1 -> 1358.5
-  tbl0_toff2_hstrt7_hend10_tpfd2 -> 1345.4
-  tbl0_toff2_hstrt7_hend10_tpfd4 -> 1335.6
-  tbl0_toff2_hstrt7_hend10_tpfd5 -> 1297.4
-  tbl0_toff2_hstrt7_hend10_tpfd6 -> 1314.1
-  tbl0_toff2_hstrt7_hend10_tpfd7 -> 1298.7
-  tbl0_toff2_hstrt7_hend10_tpfd8 -> 1308.9
-  tbl0_toff2_hstrt7_hend10_tpfd9 -> 1272.4
-  tbl0_toff2_hstrt7_hend10_tpfd10 -> 1262.5
-  tbl0_toff2_hstrt7_hend10_tpfd11 -> 1276.1
-  tbl0_toff2_hstrt7_hend10_tpfd12 -> 1294.4
-  tbl0_toff2_hstrt7_hend10_tpfd13 -> 1295.6
-  tbl0_toff2_hstrt7_hend10_tpfd14 -> 1317.7
-  tbl0_toff2_hstrt7_hend10_tpfd15 -> 1337.5
-  tbl0_toff4_hstrt3_hend7_tpfd3 -> 1854.6
-  tbl0_toff2_hstrt3_hend7_tpfd3 -> 1553.8
-  tbl0_toff3_hstrt3_hend7_tpfd3 -> 1621.7
-  tbl0_toff5_hstrt3_hend7_tpfd3 -> 2134.8
-  tbl0_toff6_hstrt3_hend7_tpfd3 -> 2786.9 audible
+Baseline noise: median magnitude 227.6
+Seeded from /home/pi/printer_data/config/chopper-autotune/datasets/20261022_023506_x: starting at tbl1_toff4_hstrt7_hend7_tpfd7
+  tbl1_toff4_hstrt7_hend7_tpfd7 -> 9550.3
+  tbl1_toff2_hstrt7_hend7_tpfd7 -> 10031.6
+  tbl1_toff3_hstrt7_hend7_tpfd7 -> 9240.1
+  tbl1_toff5_hstrt7_hend7_tpfd7 -> 9477.6
+  tbl1_toff6_hstrt7_hend7_tpfd7 -> 11334.2 audible
+  tbl1_toff7_hstrt7_hend7_tpfd7 -> 11439.2 audible
+  tbl1_toff8_hstrt7_hend7_tpfd7 -> 12393.5 audible
+  tbl2_toff1_hstrt7_hend7_tpfd7 -> 10982.4
+  tbl2_toff2_hstrt7_hend7_tpfd7 -> 10542.7
+  tbl2_toff3_hstrt7_hend7_tpfd7 -> 10400.2
+  tbl2_toff4_hstrt7_hend7_tpfd7 -> 10574.4
+  tbl2_toff5_hstrt7_hend7_tpfd7 -> 12771.2 audible
+  tbl2_toff6_hstrt7_hend7_tpfd7 -> 12673.9 audible
+  tbl2_toff7_hstrt7_hend7_tpfd7 -> 12389.9 audible
+  tbl2_toff8_hstrt7_hend7_tpfd7 -> 12900.0 audible
+  tbl3_toff1_hstrt7_hend7_tpfd7 -> 11754.6
+  tbl3_toff2_hstrt7_hend7_tpfd7 -> 11670.0
+  tbl3_toff3_hstrt7_hend7_tpfd7 -> 11810.2
+  tbl3_toff4_hstrt7_hend7_tpfd7 -> 12006.7
+  tbl3_toff5_hstrt7_hend7_tpfd7 -> 14225.5 audible
+  tbl3_toff6_hstrt7_hend7_tpfd7 -> 14357.4 audible
+  tbl3_toff7_hstrt7_hend7_tpfd7 -> 14081.8 audible
+  tbl3_toff8_hstrt7_hend7_tpfd7 -> 13845.6 audible
+  tbl1_toff3_hstrt0_hend7_tpfd7 -> 11313.7
+  tbl1_toff3_hstrt1_hend7_tpfd7 -> 11315.8
+  tbl1_toff3_hstrt2_hend7_tpfd7 -> 11087.0
+  tbl1_toff3_hstrt3_hend7_tpfd7 -> 10681.0
+  tbl1_toff3_hstrt4_hend7_tpfd7 -> 10296.4
+  tbl1_toff3_hstrt5_hend7_tpfd7 -> 9827.1
+  tbl1_toff3_hstrt6_hend7_tpfd7 -> 9477.2
+  tbl1_toff3_hstrt7_hend0_tpfd7 -> 10674.2
+  tbl1_toff3_hstrt7_hend1_tpfd7 -> 10585.4
+  tbl1_toff3_hstrt7_hend2_tpfd7 -> 10357.4
+  tbl1_toff3_hstrt7_hend3_tpfd7 -> 10170.7
+  tbl1_toff3_hstrt7_hend4_tpfd7 -> 9821.8
+  tbl1_toff3_hstrt7_hend5_tpfd7 -> 9590.4
+  tbl1_toff3_hstrt7_hend6_tpfd7 -> 9294.4
+  tbl1_toff3_hstrt7_hend8_tpfd7 -> 8987.6
+  tbl1_toff3_hstrt7_hend9_tpfd7 -> 8984.8
+  tbl1_toff3_hstrt7_hend10_tpfd7 -> 9477.2
+  tbl1_toff2_hstrt7_hend9_tpfd7 -> 9944.0
+  tbl1_toff4_hstrt7_hend9_tpfd7 -> 9027.6
+  tbl1_toff5_hstrt7_hend9_tpfd7 -> 9370.5
+  tbl1_toff6_hstrt7_hend9_tpfd7 -> 11286.4 audible
+  tbl1_toff7_hstrt7_hend9_tpfd7 -> 11014.0 audible
+  tbl1_toff8_hstrt7_hend9_tpfd7 -> 12006.1 audible
+  tbl2_toff1_hstrt7_hend9_tpfd7 -> 10700.5
+  tbl2_toff2_hstrt7_hend9_tpfd7 -> 10272.9
+  tbl2_toff3_hstrt7_hend9_tpfd7 -> 10001.0
+  tbl2_toff4_hstrt7_hend9_tpfd7 -> 10358.1
+  tbl2_toff5_hstrt7_hend9_tpfd7 -> 12342.5 audible
+  tbl2_toff6_hstrt7_hend9_tpfd7 -> 12329.7 audible
+  tbl2_toff7_hstrt7_hend9_tpfd7 -> 12260.0 audible
+  tbl2_toff8_hstrt7_hend9_tpfd7 -> 12514.0 audible
+  tbl3_toff1_hstrt7_hend9_tpfd7 -> 11482.4
+  tbl3_toff2_hstrt7_hend9_tpfd7 -> 11517.7
+  tbl3_toff3_hstrt7_hend9_tpfd7 -> 11439.9
+  tbl3_toff4_hstrt7_hend9_tpfd7 -> 11592.6
+  tbl3_toff5_hstrt7_hend9_tpfd7 -> 13949.7 audible
+  tbl3_toff6_hstrt7_hend9_tpfd7 -> 13853.4 audible
+  tbl3_toff7_hstrt7_hend9_tpfd7 -> 13802.3 audible
+  tbl3_toff8_hstrt7_hend9_tpfd7 -> 13667.0 audible
+  tbl1_toff3_hstrt0_hend9_tpfd7 -> 11025.3
+  tbl1_toff3_hstrt1_hend9_tpfd7 -> 10909.7
+  tbl1_toff3_hstrt2_hend9_tpfd7 -> 10758.3
+  tbl1_toff3_hstrt3_hend9_tpfd7 -> 10414.7
+  tbl1_toff3_hstrt4_hend9_tpfd7 -> 9984.2
+  tbl1_toff3_hstrt5_hend9_tpfd7 -> 9561.0
+  tbl1_toff3_hstrt6_hend9_tpfd7 -> 9209.3
+  tbl1_toff3_hstrt7_hend9_tpfd0 -> 9843.1
+  tbl1_toff3_hstrt7_hend9_tpfd1 -> 9426.2
+  tbl1_toff3_hstrt7_hend9_tpfd2 -> 9191.1
+  tbl1_toff3_hstrt7_hend9_tpfd3 -> 9898.0
+  tbl1_toff3_hstrt7_hend9_tpfd4 -> 9373.3
+  tbl1_toff3_hstrt7_hend9_tpfd5 -> 9826.1
+  tbl1_toff3_hstrt7_hend9_tpfd6 -> 9585.3
+  tbl1_toff3_hstrt7_hend9_tpfd8 -> 9870.3
+  tbl1_toff3_hstrt7_hend9_tpfd9 -> 9278.9
+  tbl1_toff3_hstrt7_hend9_tpfd10 -> 9328.5
+  tbl1_toff3_hstrt7_hend9_tpfd11 -> 9485.9
+  tbl1_toff3_hstrt7_hend9_tpfd12 -> 8872.7
+  tbl1_toff3_hstrt7_hend9_tpfd13 -> 9581.4
+  tbl1_toff3_hstrt7_hend9_tpfd14 -> 9032.9
+  tbl1_toff3_hstrt7_hend9_tpfd15 -> 9082.4
+  tbl1_toff2_hstrt3_hend0_tpfd7 -> 11522.5
+  tbl1_toff3_hstrt3_hend0_tpfd7 -> 11833.5
+  tbl1_toff4_hstrt3_hend0_tpfd7 -> 11823.0
+  tbl1_toff5_hstrt3_hend0_tpfd7 -> 12018.3
+  tbl1_toff6_hstrt3_hend0_tpfd7 -> 14231.5 audible
+  tbl1_toff7_hstrt3_hend0_tpfd7 -> 14318.2 audible
+  tbl1_toff8_hstrt3_hend0_tpfd7 -> 13935.9 audible
+  tbl2_toff1_hstrt3_hend0_tpfd7 -> 12585.0
+  tbl2_toff2_hstrt3_hend0_tpfd7 -> 12369.7
+  tbl2_toff3_hstrt3_hend0_tpfd7 -> 12428.3
+  tbl2_toff4_hstrt3_hend0_tpfd7 -> 12658.0
+  tbl2_toff5_hstrt3_hend0_tpfd7 -> 15056.6 audible
+  tbl2_toff6_hstrt3_hend0_tpfd7 -> 14969.9 audible
+  tbl2_toff7_hstrt3_hend0_tpfd7 -> 14626.9 audible
+  tbl2_toff8_hstrt3_hend0_tpfd7 -> 15487.8 audible
+  tbl3_toff1_hstrt3_hend0_tpfd7 -> 13590.1
+  tbl3_toff2_hstrt3_hend0_tpfd7 -> 13316.0
+  tbl3_toff3_hstrt3_hend0_tpfd7 -> 13502.5
+  tbl3_toff4_hstrt3_hend0_tpfd7 -> 13626.2
+  tbl3_toff5_hstrt3_hend0_tpfd7 -> 16115.9 audible
+  tbl3_toff6_hstrt3_hend0_tpfd7 -> 15908.3 audible
+  tbl3_toff7_hstrt3_hend0_tpfd7 -> 15565.5 audible
+  tbl3_toff8_hstrt3_hend0_tpfd7 -> 15599.5 audible
+  tbl1_toff2_hstrt0_hend0_tpfd7 -> 12417.0
+  tbl1_toff2_hstrt1_hend0_tpfd7 -> 12139.8
+  tbl1_toff2_hstrt2_hend0_tpfd7 -> 11860.0
+  tbl1_toff2_hstrt4_hend0_tpfd7 -> 11245.3
+  tbl1_toff2_hstrt5_hend0_tpfd7 -> 10964.2
+  tbl1_toff2_hstrt6_hend0_tpfd7 -> 10800.3
+  tbl1_toff2_hstrt7_hend0_tpfd7 -> 10588.5
+  tbl1_toff2_hstrt7_hend1_tpfd7 -> 10498.4
+  tbl1_toff2_hstrt7_hend2_tpfd7 -> 10343.3
+  tbl1_toff2_hstrt7_hend3_tpfd7 -> 10246.7
+  tbl1_toff2_hstrt7_hend4_tpfd7 -> 10098.4
+  tbl1_toff2_hstrt7_hend5_tpfd7 -> 9939.1
+  tbl1_toff2_hstrt7_hend6_tpfd7 -> 9808.0
+  tbl1_toff2_hstrt7_hend8_tpfd7 -> 9862.1
+  tbl1_toff2_hstrt7_hend10_tpfd7 -> 10108.1
+  tbl1_toff4_hstrt7_hend6_tpfd7 -> 9460.4
+  tbl1_toff5_hstrt7_hend6_tpfd7 -> 9746.8
+  tbl1_toff6_hstrt7_hend6_tpfd7 -> 11484.3 audible
+  tbl1_toff7_hstrt7_hend6_tpfd7 -> 11652.5 audible
+  tbl1_toff8_hstrt7_hend6_tpfd7 -> 12160.1 audible
+  tbl2_toff1_hstrt7_hend6_tpfd7 -> 10924.3
+  tbl2_toff2_hstrt7_hend6_tpfd7 -> 10586.6
+  tbl2_toff3_hstrt7_hend6_tpfd7 -> 10535.8
+  tbl2_toff4_hstrt7_hend6_tpfd7 -> 10638.3
+  tbl2_toff5_hstrt7_hend6_tpfd7 -> 12917.2 audible
+  tbl2_toff6_hstrt7_hend6_tpfd7 -> 12891.5 audible
+  tbl2_toff7_hstrt7_hend6_tpfd7 -> 12535.9 audible
+  tbl2_toff8_hstrt7_hend6_tpfd7 -> 13159.4 audible
+  tbl3_toff1_hstrt7_hend6_tpfd7 -> 11829.0
+  tbl3_toff2_hstrt7_hend6_tpfd7 -> 11574.0
+  tbl3_toff3_hstrt7_hend6_tpfd7 -> 11865.5
+  tbl3_toff4_hstrt7_hend6_tpfd7 -> 12050.8
+  tbl3_toff5_hstrt7_hend6_tpfd7 -> 14389.7 audible
+  tbl3_toff6_hstrt7_hend6_tpfd7 -> 14427.1 audible
+  tbl3_toff7_hstrt7_hend6_tpfd7 -> 14006.1 audible
+  tbl3_toff8_hstrt7_hend6_tpfd7 -> 13766.4 audible
+  tbl1_toff3_hstrt0_hend6_tpfd7 -> 11575.7
+  tbl1_toff3_hstrt1_hend6_tpfd7 -> 11436.5
+  tbl1_toff3_hstrt2_hend6_tpfd7 -> 11190.3
+  tbl1_toff3_hstrt3_hend6_tpfd7 -> 10913.6
+  tbl1_toff3_hstrt4_hend6_tpfd7 -> 10498.2
+  tbl1_toff3_hstrt5_hend6_tpfd7 -> 10198.7
+  tbl1_toff3_hstrt6_hend6_tpfd7 -> 9767.1
+  tbl1_toff2_hstrt3_hend7_tpfd7 -> 10663.8
+  tbl1_toff4_hstrt3_hend7_tpfd7 -> 11099.7
+  tbl1_toff5_hstrt3_hend7_tpfd7 -> 11251.2
+  tbl1_toff6_hstrt3_hend7_tpfd7 -> 13283.7 audible
+  tbl1_toff7_hstrt3_hend7_tpfd7 -> 13253.4 audible
+  tbl1_toff8_hstrt3_hend7_tpfd7 -> 13665.6 audible
+  tbl2_toff1_hstrt3_hend7_tpfd7 -> 11767.9
+  tbl2_toff2_hstrt3_hend7_tpfd7 -> 11755.7
+  tbl2_toff3_hstrt3_hend7_tpfd7 -> 11789.4
+  tbl2_toff4_hstrt3_hend7_tpfd7 -> 11997.9
+  tbl2_toff5_hstrt3_hend7_tpfd7 -> 14383.3 audible
+  tbl2_toff6_hstrt3_hend7_tpfd7 -> 14427.0 audible
+  tbl2_toff7_hstrt3_hend7_tpfd7 -> 14181.2 audible
+  tbl2_toff8_hstrt3_hend7_tpfd7 -> 14365.1 audible
+  tbl3_toff1_hstrt3_hend7_tpfd7 -> 12868.7
+  tbl3_toff2_hstrt3_hend7_tpfd7 -> 12722.5
+  tbl3_toff3_hstrt3_hend7_tpfd7 -> 13051.3
+  tbl3_toff4_hstrt3_hend7_tpfd7 -> 13110.0
+  tbl3_toff5_hstrt3_hend7_tpfd7 -> 15327.2 audible
+  tbl3_toff6_hstrt3_hend7_tpfd7 -> 15337.3 audible
+  tbl3_toff7_hstrt3_hend7_tpfd7 -> 14787.9 audible
+  tbl3_toff8_hstrt3_hend7_tpfd7 -> 14672.1 audible
+  tbl1_toff2_hstrt0_hend7_tpfd7 -> 11594.4
+  tbl1_toff2_hstrt1_hend7_tpfd7 -> 11410.1
+  tbl1_toff2_hstrt2_hend7_tpfd7 -> 11154.1
+  tbl1_toff2_hstrt4_hend7_tpfd7 -> 10356.0
+  tbl1_toff2_hstrt5_hend7_tpfd7 -> 10096.9
+  tbl1_toff2_hstrt6_hend7_tpfd7 -> 9896.6
+  tbl1_toff2_hstrt6_hend1_tpfd7 -> 10768.6
+  tbl1_toff2_hstrt6_hend2_tpfd7 -> 10573.6
+  tbl1_toff2_hstrt6_hend3_tpfd7 -> 10436.3
+  tbl1_toff2_hstrt6_hend4_tpfd7 -> 10231.8
+  tbl1_toff2_hstrt6_hend5_tpfd7 -> 10083.8
+  tbl1_toff2_hstrt6_hend6_tpfd7 -> 10082.8
+  tbl1_toff2_hstrt6_hend8_tpfd7 -> 9860.5
+  tbl1_toff2_hstrt6_hend9_tpfd7 -> 9909.1
+  tbl1_toff2_hstrt6_hend10_tpfd7 -> 10001.3
+  tbl1_toff2_hstrt6_hend11_tpfd7 -> 10081.8
+  tbl1_toff3_hstrt6_hend8_tpfd7 -> 9472.3
+  tbl1_toff4_hstrt6_hend8_tpfd7 -> 9749.0
+  tbl1_toff5_hstrt6_hend8_tpfd7 -> 9938.5
+  tbl1_toff6_hstrt6_hend8_tpfd7 -> 11900.9 audible
+  tbl1_toff7_hstrt6_hend8_tpfd7 -> 11839.2 audible
+  tbl1_toff8_hstrt6_hend8_tpfd7 -> 12699.7 audible
+  tbl2_toff1_hstrt6_hend8_tpfd7 -> 10780.0
+  tbl2_toff2_hstrt6_hend8_tpfd7 -> 10588.2
+  tbl2_toff3_hstrt6_hend8_tpfd7 -> 10637.1
+  tbl2_toff4_hstrt6_hend8_tpfd7 -> 10796.6
+  tbl2_toff5_hstrt6_hend8_tpfd7 -> 13077.5 audible
+  tbl2_toff6_hstrt6_hend8_tpfd7 -> 13058.1 audible
 Re-homing to reset accumulated drift
-  tbl0_toff7_hstrt3_hend7_tpfd3 -> 2904.8 audible
-  tbl0_toff8_hstrt3_hend7_tpfd3 -> 3083.8 audible
-  tbl1_toff2_hstrt3_hend7_tpfd3 -> 2280.9
-  tbl1_toff3_hstrt3_hend7_tpfd3 -> 2506.1
-  tbl1_toff4_hstrt3_hend7_tpfd3 -> 2778.1
-  tbl1_toff5_hstrt3_hend7_tpfd3 -> 2938.7
-  tbl1_toff6_hstrt3_hend7_tpfd3 -> 3800.3 audible
-  tbl1_toff7_hstrt3_hend7_tpfd3 -> 3980.9 audible
-  tbl1_toff8_hstrt3_hend7_tpfd3 -> 4072.7 audible
-  tbl2_toff1_hstrt3_hend7_tpfd3 -> 3208.4
-  tbl2_toff2_hstrt3_hend7_tpfd3 -> 3417.7
-  tbl2_toff3_hstrt3_hend7_tpfd3 -> 3787.5
-  tbl2_toff4_hstrt3_hend7_tpfd3 -> 3862.5
-  tbl2_toff5_hstrt3_hend7_tpfd3 -> 4981.6 audible
-  tbl2_toff6_hstrt3_hend7_tpfd3 -> 5072.6 audible
-  tbl2_toff7_hstrt3_hend7_tpfd3 -> 5198.0 audible
-  tbl2_toff8_hstrt3_hend7_tpfd3 -> 5184.2 audible
-  tbl3_toff1_hstrt3_hend7_tpfd3 -> 5047.6
-  tbl3_toff2_hstrt3_hend7_tpfd3 -> 5054.6
-  tbl3_toff3_hstrt3_hend7_tpfd3 -> 5340.5
-  tbl3_toff4_hstrt3_hend7_tpfd3 -> 5538.1
-  tbl3_toff5_hstrt3_hend7_tpfd3 -> 6477.7 audible
-  tbl3_toff6_hstrt3_hend7_tpfd3 -> 6467.8 audible
-  tbl3_toff7_hstrt3_hend7_tpfd3 -> 6454.9 audible
-  tbl3_toff8_hstrt3_hend7_tpfd3 -> 6500.8 audible
-  tbl0_toff2_hstrt0_hend7_tpfd3 -> 2112.9
-  tbl0_toff2_hstrt1_hend7_tpfd3 -> 1864.8
-  tbl0_toff2_hstrt2_hend7_tpfd3 -> 1642.0
-  tbl0_toff2_hstrt4_hend7_tpfd3 -> 1505.4
-  tbl0_toff2_hstrt5_hend7_tpfd3 -> 1508.0
-  tbl0_toff4_hstrt3_hend15_tpfd3 -> 1592.0
-  tbl0_toff2_hstrt3_hend15_tpfd3 -> 1383.9
-  tbl0_toff3_hstrt3_hend15_tpfd3 -> 1470.4
-  tbl0_toff5_hstrt3_hend15_tpfd3 -> 1682.4
-  tbl0_toff6_hstrt3_hend15_tpfd3 -> 2136.5 audible
-  tbl0_toff7_hstrt3_hend15_tpfd3 -> 2122.6 audible
-  tbl0_toff8_hstrt3_hend15_tpfd3 -> 2233.9 audible
-  tbl1_toff2_hstrt3_hend15_tpfd3 -> 1735.6
-  tbl1_toff3_hstrt3_hend15_tpfd3 -> 1798.8
-  tbl1_toff4_hstrt3_hend15_tpfd3 -> 1893.4
-  tbl1_toff5_hstrt3_hend15_tpfd3 -> 2044.5
-  tbl1_toff6_hstrt3_hend15_tpfd3 -> 2458.4 audible
-  tbl1_toff7_hstrt3_hend15_tpfd3 -> 2544.8 audible
-  tbl1_toff8_hstrt3_hend15_tpfd3 -> 2685.4 audible
-  tbl2_toff1_hstrt3_hend15_tpfd3 -> 2019.8
-  tbl2_toff2_hstrt3_hend15_tpfd3 -> 2267.8
-  tbl2_toff3_hstrt3_hend15_tpfd3 -> 2473.2
-  tbl2_toff4_hstrt3_hend15_tpfd3 -> 2940.4
-  tbl2_toff5_hstrt3_hend15_tpfd3 -> 3444.0 audible
-  tbl2_toff6_hstrt3_hend15_tpfd3 -> 3370.7 audible
-  tbl2_toff7_hstrt3_hend15_tpfd3 -> 3632.3 audible
-  tbl2_toff8_hstrt3_hend15_tpfd3 -> 3808.6 audible
-  tbl3_toff1_hstrt3_hend15_tpfd3 -> 3564.0
-  tbl3_toff2_hstrt3_hend15_tpfd3 -> 3856.4
-  tbl3_toff3_hstrt3_hend15_tpfd3 -> 4099.7
-  tbl3_toff4_hstrt3_hend15_tpfd3 -> 3973.2
-  tbl3_toff5_hstrt3_hend15_tpfd3 -> 5065.5 audible
-  tbl3_toff6_hstrt3_hend15_tpfd3 -> 5032.2 audible
-  tbl3_toff7_hstrt3_hend15_tpfd3 -> 5093.4 audible
-  tbl3_toff8_hstrt3_hend15_tpfd3 -> 5205.0 audible
-  tbl0_toff2_hstrt0_hend15_tpfd3 -> 1668.4
-  tbl0_toff2_hstrt1_hend15_tpfd3 -> 1587.4
-  tbl0_toff2_hstrt2_hend15_tpfd3 -> 1470.5
-  tbl0_toff2_hstrt3_hend1_tpfd3 -> 2148.3
-  tbl0_toff2_hstrt3_hend2_tpfd3 -> 1986.8
-  tbl0_toff2_hstrt3_hend3_tpfd3 -> 1844.9
-  tbl0_toff2_hstrt3_hend4_tpfd3 -> 1705.3
-  tbl0_toff2_hstrt3_hend5_tpfd3 -> 1678.4
-  tbl0_toff2_hstrt3_hend6_tpfd3 -> 1615.3
-  tbl0_toff2_hstrt3_hend8_tpfd3 -> 1536.6
-  tbl0_toff2_hstrt3_hend12_tpfd3 -> 1451.5
-  tbl0_toff2_hstrt3_hend13_tpfd3 -> 1387.3
-  tbl0_toff2_hstrt3_hend14_tpfd3 -> 1377.5
-  tbl0_toff3_hstrt3_hend14_tpfd3 -> 1508.2
-  tbl0_toff4_hstrt3_hend14_tpfd3 -> 1621.0
-  tbl0_toff5_hstrt3_hend14_tpfd3 -> 1696.7
-  tbl0_toff6_hstrt3_hend14_tpfd3 -> 2190.2 audible
-  tbl0_toff7_hstrt3_hend14_tpfd3 -> 2210.7 audible
-  tbl0_toff8_hstrt3_hend14_tpfd3 -> 2312.5 audible
-  tbl1_toff2_hstrt3_hend14_tpfd3 -> 1729.0
-  tbl1_toff3_hstrt3_hend14_tpfd3 -> 1766.6
-  tbl1_toff4_hstrt3_hend14_tpfd3 -> 1901.0
-  tbl1_toff5_hstrt3_hend14_tpfd3 -> 2159.6
-  tbl1_toff6_hstrt3_hend14_tpfd3 -> 2566.7 audible
-  tbl1_toff7_hstrt3_hend14_tpfd3 -> 2757.0 audible
-  tbl1_toff8_hstrt3_hend14_tpfd3 -> 2777.2 audible
-  tbl2_toff1_hstrt3_hend14_tpfd3 -> 2132.5
-  tbl2_toff2_hstrt3_hend14_tpfd3 -> 2440.2
-  tbl2_toff3_hstrt3_hend14_tpfd3 -> 2595.3
-  tbl2_toff4_hstrt3_hend14_tpfd3 -> 2930.9
-  tbl2_toff5_hstrt3_hend14_tpfd3 -> 3587.1 audible
-  tbl2_toff6_hstrt3_hend14_tpfd3 -> 3544.4 audible
-  tbl2_toff7_hstrt3_hend14_tpfd3 -> 3859.7 audible
-  tbl2_toff8_hstrt3_hend14_tpfd3 -> 3998.1 audible
-  tbl3_toff1_hstrt3_hend14_tpfd3 -> 3763.6
-  tbl3_toff2_hstrt3_hend14_tpfd3 -> 4015.2
-  tbl3_toff3_hstrt3_hend14_tpfd3 -> 4197.3
-  tbl3_toff4_hstrt3_hend14_tpfd3 -> 4116.1
-  tbl3_toff5_hstrt3_hend14_tpfd3 -> 5258.0 audible
-  tbl3_toff6_hstrt3_hend14_tpfd3 -> 5252.7 audible
-  tbl3_toff7_hstrt3_hend14_tpfd3 -> 5251.4 audible
-  tbl3_toff8_hstrt3_hend14_tpfd3 -> 5433.3 audible
-  tbl0_toff2_hstrt0_hend14_tpfd3 -> 1709.0
-  tbl0_toff2_hstrt1_hend14_tpfd3 -> 1626.5
-  tbl0_toff2_hstrt2_hend14_tpfd3 -> 1504.4
-  tbl0_toff2_hstrt4_hend14_tpfd3 -> 1384.2
-  tbl0_toff2_hstrt3_hend14_tpfd0 -> 1396.3
-  tbl0_toff2_hstrt3_hend14_tpfd1 -> 1399.9
-  tbl0_toff2_hstrt3_hend14_tpfd2 -> 1366.4
-  tbl0_toff2_hstrt3_hend14_tpfd4 -> 1377.2
-  tbl0_toff2_hstrt3_hend14_tpfd5 -> 1368.8
-  tbl0_toff2_hstrt3_hend14_tpfd6 -> 1353.1
-  tbl0_toff2_hstrt3_hend14_tpfd7 -> 1346.5
-  tbl0_toff2_hstrt3_hend14_tpfd8 -> 1357.2
-  tbl0_toff2_hstrt3_hend14_tpfd9 -> 1346.7
-  tbl0_toff2_hstrt3_hend14_tpfd10 -> 1358.3
-  tbl0_toff2_hstrt3_hend14_tpfd11 -> 1357.2
-  tbl0_toff2_hstrt3_hend14_tpfd12 -> 1364.2
-  tbl0_toff2_hstrt3_hend14_tpfd13 -> 1354.8
-  tbl0_toff2_hstrt3_hend14_tpfd14 -> 1336.1
-  tbl0_toff2_hstrt3_hend14_tpfd15 -> 1380.1
-Descent best tbl0_toff2_hstrt7_hend10_tpfd10
+  tbl2_toff7_hstrt6_hend8_tpfd7 -> 12908.4 audible
+  tbl2_toff8_hstrt6_hend8_tpfd7 -> 13282.8 audible
+  tbl3_toff1_hstrt6_hend8_tpfd7 -> 11832.1
+  tbl3_toff2_hstrt6_hend8_tpfd7 -> 11695.2
+  tbl3_toff3_hstrt6_hend8_tpfd7 -> 11896.2
+  tbl3_toff4_hstrt6_hend8_tpfd7 -> 12029.4
+  tbl3_toff5_hstrt6_hend8_tpfd7 -> 14399.3 audible
+  tbl3_toff6_hstrt6_hend8_tpfd7 -> 14499.0 audible
+  tbl3_toff7_hstrt6_hend8_tpfd7 -> 14343.4 audible
+  tbl3_toff8_hstrt6_hend8_tpfd7 -> 14152.3 audible
+  tbl1_toff3_hstrt0_hend8_tpfd7 -> 11271.1
+  tbl1_toff3_hstrt1_hend8_tpfd7 -> 11205.0
+  tbl1_toff3_hstrt2_hend8_tpfd7 -> 10904.9
+  tbl1_toff3_hstrt3_hend8_tpfd7 -> 10526.5
+  tbl1_toff3_hstrt4_hend8_tpfd7 -> 10120.7
+  tbl1_toff3_hstrt5_hend8_tpfd7 -> 9725.2
+  tbl1_toff2_hstrt2_hend15_tpfd7 -> 10948.5
+  tbl1_toff3_hstrt2_hend15_tpfd7 -> 10671.3
+  tbl1_toff4_hstrt2_hend15_tpfd7 -> 10698.3
+  tbl1_toff5_hstrt2_hend15_tpfd7 -> 10742.9
+  tbl1_toff6_hstrt2_hend15_tpfd7 -> 12752.5 audible
+  tbl1_toff7_hstrt2_hend15_tpfd7 -> 12432.6 audible
+  tbl1_toff8_hstrt2_hend15_tpfd7 -> 12488.3 audible
+  tbl2_toff1_hstrt2_hend15_tpfd7 -> 11248.3
+  tbl2_toff2_hstrt2_hend15_tpfd7 -> 11148.7
+  tbl2_toff3_hstrt2_hend15_tpfd7 -> 10965.8
+  tbl2_toff4_hstrt2_hend15_tpfd7 -> 11317.8
+  tbl2_toff5_hstrt2_hend15_tpfd7 -> 13434.6 audible
+  tbl2_toff6_hstrt2_hend15_tpfd7 -> 13267.9 audible
+  tbl2_toff7_hstrt2_hend15_tpfd7 -> 13832.4 audible
+  tbl2_toff8_hstrt2_hend15_tpfd7 -> 12917.3 audible
+  tbl3_toff1_hstrt2_hend15_tpfd7 -> 12174.8
+  tbl3_toff2_hstrt2_hend15_tpfd7 -> 12061.8
+  tbl3_toff3_hstrt2_hend15_tpfd7 -> 12074.8
+  tbl3_toff4_hstrt2_hend15_tpfd7 -> 12188.4
+  tbl3_toff5_hstrt2_hend15_tpfd7 -> 14424.0 audible
+  tbl3_toff6_hstrt2_hend15_tpfd7 -> 14053.7 audible
+  tbl3_toff7_hstrt2_hend15_tpfd7 -> 14650.2 audible
+  tbl3_toff8_hstrt2_hend15_tpfd7 -> 14084.3 audible
+  tbl1_toff3_hstrt0_hend15_tpfd7 -> 10762.5
+  tbl1_toff3_hstrt1_hend15_tpfd7 -> 10909.2
+  tbl1_toff3_hstrt2_hend0_tpfd7 -> 11929.6
+  tbl1_toff3_hstrt2_hend1_tpfd7 -> 11848.0
+  tbl1_toff3_hstrt2_hend2_tpfd7 -> 11821.0
+  tbl1_toff3_hstrt2_hend3_tpfd7 -> 11812.5
+  tbl1_toff3_hstrt2_hend4_tpfd7 -> 11601.5
+  tbl1_toff3_hstrt2_hend5_tpfd7 -> 11386.3
+  tbl1_toff3_hstrt2_hend10_tpfd7 -> 10488.0
+  tbl1_toff3_hstrt2_hend11_tpfd7 -> 10297.8
+  tbl1_toff3_hstrt2_hend12_tpfd7 -> 10276.9
+  tbl1_toff3_hstrt2_hend13_tpfd7 -> 10040.0
+  tbl1_toff3_hstrt2_hend14_tpfd7 -> 10645.4
+  tbl1_toff2_hstrt2_hend13_tpfd7 -> 10681.0
+  tbl1_toff4_hstrt2_hend13_tpfd7 -> 10515.1
+  tbl1_toff5_hstrt2_hend13_tpfd7 -> 10857.9
+  tbl1_toff6_hstrt2_hend13_tpfd7 -> 12645.8 audible
+  tbl1_toff7_hstrt2_hend13_tpfd7 -> 12605.6 audible
+  tbl1_toff8_hstrt2_hend13_tpfd7 -> 12886.0 audible
+  tbl2_toff1_hstrt2_hend13_tpfd7 -> 11305.1
+  tbl2_toff2_hstrt2_hend13_tpfd7 -> 11121.1
+  tbl2_toff3_hstrt2_hend13_tpfd7 -> 10997.4
+  tbl2_toff4_hstrt2_hend13_tpfd7 -> 11451.8
+  tbl2_toff5_hstrt2_hend13_tpfd7 -> 13785.7 audible
+  tbl2_toff6_hstrt2_hend13_tpfd7 -> 13666.4 audible
+  tbl2_toff7_hstrt2_hend13_tpfd7 -> 14083.5 audible
+  tbl2_toff8_hstrt2_hend13_tpfd7 -> 13372.2 audible
+  tbl3_toff1_hstrt2_hend13_tpfd7 -> 12488.9
+  tbl3_toff2_hstrt2_hend13_tpfd7 -> 12559.0
+  tbl3_toff3_hstrt2_hend13_tpfd7 -> 12315.8
+  tbl3_toff4_hstrt2_hend13_tpfd7 -> 12520.5
+  tbl3_toff5_hstrt2_hend13_tpfd7 -> 14641.5 audible
+  tbl3_toff6_hstrt2_hend13_tpfd7 -> 14640.4 audible
+  tbl3_toff7_hstrt2_hend13_tpfd7 -> 14873.7 audible
+  tbl3_toff8_hstrt2_hend13_tpfd7 -> 14478.9 audible
+  tbl1_toff3_hstrt0_hend13_tpfd7 -> 10460.1
+  tbl1_toff3_hstrt1_hend13_tpfd7 -> 10384.9
+  tbl1_toff3_hstrt3_hend13_tpfd7 -> 10114.8
+  tbl1_toff3_hstrt4_hend13_tpfd7 -> 10369.8
+  tbl1_toff3_hstrt2_hend13_tpfd0 -> 10974.0
+  tbl1_toff3_hstrt2_hend13_tpfd1 -> 10649.2
+  tbl1_toff3_hstrt2_hend13_tpfd2 -> 10214.2
+  tbl1_toff3_hstrt2_hend13_tpfd3 -> 10864.9
+  tbl1_toff3_hstrt2_hend13_tpfd4 -> 10417.3
+  tbl1_toff3_hstrt2_hend13_tpfd5 -> 10717.3
+  tbl1_toff3_hstrt2_hend13_tpfd6 -> 10553.6
+  tbl1_toff3_hstrt2_hend13_tpfd8 -> 10782.7
+  tbl1_toff3_hstrt2_hend13_tpfd9 -> 10221.5
+  tbl1_toff3_hstrt2_hend13_tpfd10 -> 10497.2
+  tbl1_toff3_hstrt2_hend13_tpfd11 -> 10541.3
+  tbl1_toff3_hstrt2_hend13_tpfd12 -> 10001.2
+  tbl1_toff3_hstrt2_hend13_tpfd13 -> 10663.5
+  tbl1_toff3_hstrt2_hend13_tpfd14 -> 10102.1
+  tbl1_toff3_hstrt2_hend13_tpfd15 -> 10389.9
+Descent best tbl1_toff3_hstrt7_hend9_tpfd12
 Validating 3 candidate(s) with 2 extra iterations each
-Validating 3 candidate(s) with 2 extra iterations each
-Validating 3 candidate(s) with 2 extra iterations each
-Validating 3 candidate(s) with 2 extra iterations each
-Measuring tbl0_toff2_hstrt6_hend11_tpfd10 / tbl2_toff3_hstrt5_hend2_tpfd4 / tbl0_toff2_hstrt5_hend12_tpfd12 back to back, 4 rounds: the gain is counted on these moves
+Validating 1 candidate(s) with 2 extra iterations each
+Validating 1 candidate(s) with 2 extra iterations each
+Your registers tbl0_toff2_hstrt5_hend12_tpfd12 are not measured back to back (TBL 0 is outside TBL=1:3): the winner is not checked against them
+Measuring tbl1_toff3_hstrt7_hend9_tpfd12 / tbl2_toff3_hstrt5_hend2_tpfd4 back to back, 4 rounds: the gain is counted on these moves
 
 rank  tbl  toff  hstrt  hend  tpfd  magnitude   spread   n clicks   f_chop 
-1       0     2      6    11     7     1240.5    792.7   2      0  60.1kHz 
-2       0     2      6    11    14     1240.5    656.2   2      0  60.1kHz 
-3       0     2      7    10     7     1240.6    797.2   2      0  60.1kHz 
-4       0     2      6    11     5     1242.9    804.7   2      0  60.1kHz 
-5       0     2      6    11     6     1243.7    840.9   2      0  60.1kHz 
-6       0     2      6    11     4     1249.8    802.9   2      0  60.1kHz 
-7       0     2      7    10     8     1250.3    789.5   2      0  60.1kHz 
-8       0     2      7    10    10     1250.6    779.4   6      0  60.1kHz 
-9       0     2      6    11     9     1251.0    737.3   6      0  60.1kHz 
-10      0     2      6    11    12     1251.7    730.3   6      0  60.1kHz 
-20      0     2      5    12    12     1258.1    725.5   8      0  60.1kHz 
+1       1     3      7     9    12     8453.2    682.6  14      0  43.4kHz 
+2       1     3      7     9     7     8589.8    711.2   6      0  43.4kHz 
+3       1     3      7     9    14     8619.8    377.4   6      0  43.4kHz 
+4       1     3      7     9    15     8657.6   1150.3   2      0  43.4kHz 
+5       1     3      7     8     7     8711.6    715.2   6      0  43.4kHz 
+6       1     3      7     9     2     8761.1    807.9   2      0  43.4kHz 
+7       1     3      6     9     7     8804.7    401.9   2      0  43.4kHz 
+8       1     4      7     9     7     8578.3   1121.8   6      0  35.5kHz 
+9       1     3      7     7     7     8860.7    247.8   2      0  43.4kHz 
+10      1     3      7     9     9     8844.9    447.2   2      0  43.4kHz 
 
-Keep your registers tbl0_toff2_hstrt5_hend12_tpfd12: the best found, tbl0_toff2_hstrt6_hend11_tpfd10, was not quieter than them in each of 4 back-to-back rounds (1258 -> 1259)
-
-vs Klipper defaults tbl2_toff3_hstrt5_hend2_tpfd4, back to back: 3.0x less vibration, quieter in each of 4 rounds (3803 -> 1258)
+vs Klipper defaults tbl2_toff3_hstrt5_hend2_tpfd4, back to back: 1.3x less vibration, quieter in each of 4 rounds (11204 -> 8434)
 
 Recommended for printer.cfg:
 
 [tmc2240 stepper_y]
-driver_TBL: 0
-driver_TOFF: 2
-driver_HSTRT: 5
-driver_HEND: 12
+driver_TBL: 1
+driver_TOFF: 3
+driver_HSTRT: 7
+driver_HEND: 9
 driver_TPFD: 12
 Restoring baseline registers, homing
-Done in 28m: 714 ok, 0 failed -> /home/pi/printer_data/config/chopper-autotune/datasets/20261017_080031_y
-Next: chopper-autotune analyze /home/pi/printer_data/config/chopper-autotune/datasets/20261017_080031_y
+Done in 25m: 622 ok, 0 failed -> /home/pi/printer_data/config/chopper-autotune/datasets/20261022_030338_y
 
 === Summary ===
 [tmc2240 stepper_x]
-driver_TBL: 0
+driver_TBL: 1
 driver_TOFF: 5
-driver_HSTRT: 6
-driver_HEND: 9
-driver_TPFD: 10
-# 2.3x less vibration than Klipper defaults
+driver_HSTRT: 7
+driver_HEND: 8
+driver_TPFD: 7
+# 1.2x less vibration than Klipper defaults
 
 
 [tmc2240 stepper_y]
-driver_TBL: 0
-driver_TOFF: 2
-driver_HSTRT: 5
-driver_HEND: 12
+driver_TBL: 1
+driver_TOFF: 3
+driver_HSTRT: 7
+driver_HEND: 9
 driver_TPFD: 12
-# your registers, kept: no combo was quieter in each back-to-back round
-# 3.0x less vibration than Klipper defaults
+# 1.3x less vibration than Klipper defaults
 
 
-To save stepper_x from this run alone: CHOPPER_ANALYZE DATASET=/home/pi/printer_data/config/chopper-autotune/datasets/20261017_072616_x SAVE=1
-CHOPPER_SAVE writes the latest result of every motor, and the stored CHOPPER_EXTRUDER winner, in one go (it skips the motors autotune manages). Or paste the lines above manually.
+To save: CHOPPER_SAVE MOTOR=AB
