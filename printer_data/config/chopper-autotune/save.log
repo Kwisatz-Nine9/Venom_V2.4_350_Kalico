@@ -1,4 +1,0 @@
-motor A: saving tbl1_toff5_hstrt7_hend8_tpfd7 from run 20261022_023506_x
-motor B: saving tbl1_toff3_hstrt7_hend9_tpfd12 from run 20261022_030338_y
-
-Saved the new registers to printer.cfg (backups: *.chopper-backup.cfg), Klipper is restarting
